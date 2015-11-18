@@ -2,7 +2,8 @@
 
 class CoeRecentPost extends CWidget
 {
-
+	public $production = 0;
+	
 	public function init() {
 	}
 
@@ -11,18 +12,19 @@ class CoeRecentPost extends CWidget
 	}
 
 	protected function renderContent() {
+		
 		$module = strtolower(Yii::app()->controller->module->id);
 		$controller = strtolower(Yii::app()->controller->id);
 		$action = strtolower(Yii::app()->controller->action->id);
 		$currentAction = strtolower(Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
 		
-		$server = ($_SERVER["SERVER_ADDR"]=='127.0.0.1' || $_SERVER["HTTP_HOST"]=='localhost') ? false : true;
-		$production = 0;
-		if($production == 1)
+		$server = ($_SERVER["SERVER_ADDR"]=='127.0.0.1' || $_SERVER["HTTP_HOST"]=='localhost') ? false : true;		
+		if($this->production == 1)
 			$urlProduction = 'http://localhost/coe/index.php/Api/index';
 		else
 			$urlProduction = 'http://coe.bpadjogja.info/index.php/Api/index';
-		$url = $server != true ? $urlProduction : 'http://localhost/_client_bpadjogja_backup/bpadjogja_coe/index.php/api/index';
+		$url = (($server == true) || ($server != true && $this->production == 0)) ? $urlProduction : 'http://localhost/_client_bpadjogja_backup/bpadjogja_coe/index.php/api/index';
+		//echo $url;
 			
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_URL,$url);
