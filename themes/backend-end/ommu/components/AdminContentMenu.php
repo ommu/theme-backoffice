@@ -19,10 +19,12 @@ class AdminContentMenu extends CWidget
 		
 		$module = $module != null ? $module : '-'; 
 		$model = OmmuContentMenu::model()->findAll(array(
-			'condition' => 'module = :m AND controller = :c AND enabled = 1',
+			'condition' => 'module = :m AND controller = :c AND enabled = :enabled AND FIND_IN_SET(:sitetype, sitetype_access)',
 			'params' => array(
 				':m'=>$module, 
 				':c'=>$controller,
+				':enabled' => 1,
+				':sitetype' => OmmuSettings::getInfo('site_type'),
 			),
 			//'order' => 'order'
 		));

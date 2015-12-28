@@ -6,7 +6,7 @@
 
 <?php //begin.Powered ?>
 <div class="powered">
-	<?php echo Phrase::trans(333, 0);?> <a off_address="" href="http://company.ommu.co" target="_blank" title="Ommu Platform">Ommu Platform</a>
+	<?php echo Phrase::trans(333, 0);?> <a off_address="" href="http://opensource.ommu.co" target="_blank" title="Ommu Platform">Ommu Platform</a>
 </div>
 <?php //end.Powered ?>
 

@@ -12,7 +12,7 @@
 		$menuRender = 3;
 		$title = 'Submenu';
 		
-	} elseif($module == null && in_array($controller, array('settings','language','phrase','theme','locale','pluginphrase','meta','template','zonecountry','zoneprovince','zonecity','zonedistrict')) || ($module != null && ($module == 'support' && (in_array($currentAction, array('mail/setting')) || in_array($controller, array('contact','contactcategory')))))) {
+	} elseif($module == null && in_array($controller, array('settings','language','phrase','theme','locale','pluginphrase','meta','template','zonecountry','zoneprovince','zonecity','zonedistrict','zonevillage')) || ($module != null && ($module == 'support' && (in_array($currentAction, array('mail/setting')) || in_array($controller, array('contact','contactcategory')))))) {
 		$menuRender = 4;
 		$title = 'Submenu';
 	}
@@ -29,7 +29,7 @@
 				foreach($plugin as $key => $val) {
 					$menu = OmmuPluginMenu::model()->findAll(array(
 						//'select' => 'name, module, url, dialog',
-						'condition' => 'module = :module AND enabled = :enabled AND FIND_IN_SET(:userlevel,userlevel_access)',
+						'condition' => 'module = :module AND enabled = :enabled AND FIND_IN_SET(:userlevel, userlevel_access)',
 						'params' => array(
 							':module' => $val->folder,
 							':enabled' => 1,
@@ -81,7 +81,7 @@
 				}
 			}
 		?>
-		<li <?php echo $menuRender == 3 ? 'class="active"' : ''; ?>><a class="member" href="<?php echo ($setting->site_type == 1 && Yii::app()->user->level != 1) ? Yii::app()->createUrl('users/member/manage') : Yii::app()->createUrl('users/admin/manage') ?>" title="<?php echo Phrase::trans(16002,1);?>"><?php echo Phrase::trans(16002,1);?></a></li>
+		<li <?php echo $menuRender == 3 ? 'class="active"' : ''; ?>><a class="member" href="<?php echo Yii::app()->user->level != 1 ? Yii::app()->createUrl('users/member/manage') : Yii::app()->createUrl('users/admin/manage') ?>" title="<?php echo Phrase::trans(16002,1);?>"><?php echo Phrase::trans(16002,1);?></a></li>
 		<li <?php echo $menuRender == 4 ? 'class="active"' : ''; ?>><a class="setting" href="<?php echo Yii::app()->user->level == 1 ? Yii::app()->createUrl('settings/general') : Yii::app()->createUrl('support/contact/manage');?>" title="<?php echo Phrase::trans(133,0);?>"><?php echo Phrase::trans(133,0);?></a></li>
 	</ul>
 </div>
@@ -99,7 +99,7 @@
 				foreach($core as $key => $val) {
 					$menu = OmmuPluginMenu::model()->findAll(array(
 						//'select' => 'name, module, url, dialog',
-						'condition' => 'module = :module AND enabled = :enabled AND FIND_IN_SET(:userlevel,userlevel_access)',
+						'condition' => 'module = :module AND enabled = :enabled AND FIND_IN_SET(:userlevel, userlevel_access)',
 						'params' => array(
 							':module' => $val->folder,
 							':enabled' => 1,
@@ -175,104 +175,104 @@
 		<?php 
 		$menu = OmmuPluginMenu::model()->findAll(array(
 			//'select' => 'name, module, url, dialog',
-			'condition' => 'module = :module AND parent = :parent AND enabled = :enabled',
+			'condition' => 'module = :module AND parent = :parent AND enabled = :enabled AND FIND_IN_SET(:userlevel, userlevel_access)',
 			'params' => array(
 				':module' => $module,
 				':parent' => 0,
 				':enabled' => 1,
+				':userlevel' => Yii::app()->user->level,
 			),
 			'order'=> 'orders ASC',
 		));
 		if($menu != null) {
-			if(count($menu) > 1) {
-				foreach($menu as $key => $val) {
-					$urlArray = explode('/', $val->url);
-					//$aClass = $val->dialog == 1 ? 'id="default"' : '';
-					if(count($urlArray) == 3)
-						$aClass = $controller == $urlArray[0].'/'.$urlArray[1] ? 'class="active"' : '';
-					else
-						$aClass = $controller == $urlArray[0] ? 'class="active"' : '';
-						
-					$icons = $val->icon != '-' ? $val->icon : 'C';
+			foreach($menu as $key => $val) {
+				$urlArray = explode('/', $val->url);
+				//$aClass = $val->dialog == 1 ? 'id="default"' : '';
+				if(count($urlArray) == 3)
+					$aClass = $controller == $urlArray[0].'/'.$urlArray[1] ? 'class="active"' : '';
+				else
+					$aClass = $controller == $urlArray[0] ? 'class="active"' : '';
+					
+				$icons = $val->icon != '-' ? $val->icon : 'C';
 
-					//attr url					
-					$arrAttrParams = array();
-					if($val->attr != '-') {
-						$arrAttr = explode(',', $val->attr);
-						if(count($arrAttr) > 0) {
-							foreach($arrAttr as $row) {
-								$part = explode('=', $row);
-								if(strpos($part[1], '$_GET') !== false) {								
-									$list = explode('*', $part[1]);
-									if(count($list) == 2)
-										$arrAttrParams[$part[0]] = $_GET[$list[1]];
-									elseif(count($list) == 3)
-										$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]];
-									elseif(count($list) == 4)
-										$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]];
-									elseif(count($list) == 5)
-										$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]][$list[4]];
-									
-								} else {
-									$arrAttrParams[$part[0]] = $part[1];
-								}
+				//attr url					
+				$arrAttrParams = array();
+				if($val->attr != '-') {
+					$arrAttr = explode(',', $val->attr);
+					if(count($arrAttr) > 0) {
+						foreach($arrAttr as $row) {
+							$part = explode('=', $row);
+							if(strpos($part[1], '$_GET') !== false) {								
+								$list = explode('*', $part[1]);
+								if(count($list) == 2)
+									$arrAttrParams[$part[0]] = $_GET[$list[1]];
+								elseif(count($list) == 3)
+									$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]];
+								elseif(count($list) == 4)
+									$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]];
+								elseif(count($list) == 5)
+									$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]][$list[4]];
+								
+							} else {
+								$arrAttrParams[$part[0]] = $part[1];
 							}
 						}
 					}
-					$submenu = OmmuPluginMenu::model()->findAll(array(
-						//'select' => 'name, module, url, dialog',
-						'condition' => 'module = :module AND parent = :parent AND enabled = :enabled',
-						'params' => array(
-							':module' => $val->module,
-							':parent' => $val->menu_id,
-							':enabled' => 1,
-						),
-						'order'=> 'orders ASC',
-					));
-					$class = $submenu != null ? 'class="submenu-show"' : '';
-					echo '<li '.$class.'>';
-					echo '<a '.$aClass.' href="'.Yii::app()->createUrl($val->module.'/'.$val->url, $arrAttrParams).'" title="'.Phrase::trans($val->name, 2).'">'.Phrase::trans($val->name, 2).'</a>';
-						if($submenu != null) {
-							echo '<ul>';
-							foreach($submenu as $key => $data) {
-								$urlArray = explode('/', $data->url);
-								if(count($urlArray) == 3)
-									$subLiClass = $controller == $urlArray[0].'/'.$urlArray[1] ? 'class="selected"' : '';
-								else
-									$subLiClass = $controller == $urlArray[0] ? 'class="selected"' : '';
-								$subClass = $data->dialog == 1 ? 'id="default"' : '';
-								$subIcons = $data->icon != '-' ? $data->icon : 'C';
+				}
+				$submenu = OmmuPluginMenu::model()->findAll(array(
+					//'select' => 'name, module, url, dialog',
+					'condition' => 'module = :module AND parent = :parent AND enabled = :enabled AND FIND_IN_SET(:userlevel, userlevel_access)',
+					'params' => array(
+						':module' => $val->module,
+						':parent' => $val->menu_id,
+						':enabled' => 1,
+						':userlevel' => Yii::app()->user->level,
+					),
+					'order'=> 'orders ASC',
+				));
+				$class = $submenu != null ? 'class="submenu-show"' : '';
+				echo '<li '.$class.'>';
+				echo '<a '.$aClass.' href="'.Yii::app()->createUrl($val->module.'/'.$val->url, $arrAttrParams).'" title="'.Phrase::trans($val->name, 2).'">'.Phrase::trans($val->name, 2).'</a>';
+					if($submenu != null) {
+						echo '<ul>';
+						foreach($submenu as $key => $data) {
+							$urlArray = explode('/', $data->url);
+							if(count($urlArray) == 3)
+								$subLiClass = $controller == $urlArray[0].'/'.$urlArray[1] ? 'class="selected"' : '';
+							else
+								$subLiClass = $controller == $urlArray[0] ? 'class="selected"' : '';
+							$subClass = $data->dialog == 1 ? 'id="default"' : '';
+							$subIcons = $data->icon != '-' ? $data->icon : 'C';
 
-								//attr url					
-								$arrAttrParams = array();
-								if($data->attr != '-') {
-									$arrAttr = explode(',', $data->attr);
-									if(count($arrAttr) > 0) {
-										foreach($arrAttr as $row) {
-											$part = explode('=', $row);
-											if(strpos($part[1], '$_GET') !== false) {								
-												$list = explode('*', $part[1]);
-												if(count($list) == 2)
-													$arrAttrParams[$part[0]] = $_GET[$list[1]];
-												elseif(count($list) == 3)
-													$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]];
-												elseif(count($list) == 4)
-													$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]];
-												elseif(count($list) == 5)
-													$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]][$list[4]];
-												
-											} else {
-												$arrAttrParams[$part[0]] = $part[1];
-											}
+							//attr url					
+							$arrAttrParams = array();
+							if($data->attr != '-') {
+								$arrAttr = explode(',', $data->attr);
+								if(count($arrAttr) > 0) {
+									foreach($arrAttr as $row) {
+										$part = explode('=', $row);
+										if(strpos($part[1], '$_GET') !== false) {								
+											$list = explode('*', $part[1]);
+											if(count($list) == 2)
+												$arrAttrParams[$part[0]] = $_GET[$list[1]];
+											elseif(count($list) == 3)
+												$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]];
+											elseif(count($list) == 4)
+												$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]];
+											elseif(count($list) == 5)
+												$arrAttrParams[$part[0]] = $_GET[$list[1]][$list[2]][$list[3]][$list[4]];
+											
+										} else {
+											$arrAttrParams[$part[0]] = $part[1];
 										}
 									}
 								}
-								echo '<li '.$subLiClass.'><a '.$subClass.' href="'.Yii::app()->createUrl($data->module.'/'.$data->url, $arrAttrParams).'" title="'.Phrase::trans($data->name, 2).'"><span class="icons">'.$subIcons.'</span>'.Phrase::trans($data->name, 2).'</a></li>';								
 							}
-							echo '</ul>';
-						}						
-					echo '</li>';
-				}
+							echo '<li '.$subLiClass.'><a '.$subClass.' href="'.Yii::app()->createUrl($data->module.'/'.$data->url, $arrAttrParams).'" title="'.Phrase::trans($data->name, 2).'"><span class="icons">'.$subIcons.'</span>'.Phrase::trans($data->name, 2).'</a></li>';								
+						}
+						echo '</ul>';
+					}						
+				echo '</li>';
 			}
 		}
 		?>
@@ -288,6 +288,7 @@
 		<?php }?>
 		<?php if($setting->site_type == 1) {?>
 			<li <?php echo $controller == 'newsletter' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('newsletter/manage');?>" title="<?php echo Phrase::trans(16242,1);?>"><?php echo Phrase::trans(16242,1);?></a></li>
+			<li <?php echo $controller == 'invite' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('invite/manage');?>" title="<?php echo Phrase::trans(16172,1);?>"><?php echo Phrase::trans(16172,1);?></a></li>
 		<?php }
 		if(Yii::app()->user->level == 1) {?>
 			<li <?php echo ($controller == 'history' && in_array($action, array('login','username','email','password','forgot','subscribe'))) ? 'class="submenu-show"' : '';?>>
@@ -297,10 +298,8 @@
 					<li <?php echo $action == 'login' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/login');?>" title="<?php echo Phrase::trans(16192,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16192,1);?></a></li>
 					<?php if($setting->site_type == 1) {?>
 						<li <?php echo $action == 'username' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/username');?>" title="<?php echo Phrase::trans(16253,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16253,1);?></a></li>
-					<?php }?>
-					<li <?php echo $action == 'email' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/email');?>" title="<?php echo Phrase::trans(16251,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16251,1);?></a></li>
-					<li <?php echo $action == 'password' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/password');?>" title="<?php echo Phrase::trans(16252,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16252,1);?></a></li>
-					<?php if($setting->site_type == 1) {?>			
+						<li <?php echo $action == 'email' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/email');?>" title="<?php echo Phrase::trans(16251,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16251,1);?></a></li>
+						<li <?php echo $action == 'password' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/password');?>" title="<?php echo Phrase::trans(16252,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16252,1);?></a></li>
 						<li <?php echo $action == 'forgot' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/forgot');?>" title="<?php echo Phrase::trans(16246,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16246,1);?></a></li>
 						<li <?php echo $action == 'subscribe' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->controller->createUrl('history/subscribe');?>" title="<?php echo Phrase::trans(16242,1);?>"><span class="icons">C</span><?php echo Phrase::trans(16242,1);?></a></li>
 					<?php }?>
@@ -320,13 +319,14 @@
 				<li <?php echo $currentAction == 'settings/signup' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('settings/signup');?>" title="<?php echo Phrase::trans(5,0);?>"><?php echo Phrase::trans(5,0);?></a></li>
 			<?php }?>
 			<li <?php echo $controller == 'meta' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('meta/edit');?>" title="<?php echo Phrase::trans(551,0);?>"><?php echo Phrase::trans(551,0);?></a></li>
-			<li <?php echo in_array($controller, array('locale','zonecountry','zoneprovince','zonecity','zonedistrict')) ? 'class="submenu-show"' : '' ?>>
+			<li <?php echo in_array($controller, array('locale','zonecountry','zoneprovince','zonecity','zonedistrict','zonevillage')) ? 'class="submenu-show"' : '' ?>>
 				<a <?php echo $controller == 'locale' ? 'class="active"' : '' ?> href="<?php echo Yii::app()->createUrl('locale/setting');?>" title="<?php echo Phrase::trans(241,0);?>"><?php echo Phrase::trans(241,0);?></a>
 				<ul>
 					<li <?php echo $controller == 'zonecountry' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('zonecountry/manage');?>" title="<?php echo Phrase::trans(422,0);?>"><span class="icons">C</span><?php echo Phrase::trans(422,0);?></a></li>
 					<li <?php echo $controller == 'zoneprovince' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('zoneprovince/manage');?>" title="<?php echo Phrase::trans(421,0);?>"><span class="icons">C</span><?php echo Phrase::trans(421,0);?></a></li>
 					<li <?php echo $controller == 'zonecity' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('zonecity/manage');?>" title="<?php echo Phrase::trans(424,0);?>"><span class="icons">C</span><?php echo Phrase::trans(424,0);?></a></li>
 					<li <?php echo $controller == 'zonedistrict' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('zonedistrict/manage');?>" title="<?php echo 'Districts';?>"><span class="icons">C</span><?php echo 'Districts';?></a></li>
+					<li <?php echo $controller == 'zonevillage' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('zonevillage/manage');?>" title="<?php echo 'Village';?>"><span class="icons">C</span><?php echo 'Village';?></a></li>
 				</ul>
 			</li>
 			<li <?php echo ($currentAction == 'mail/setting' || $controller == 'template') ? 'class="submenu-show"' : '' ?>>
