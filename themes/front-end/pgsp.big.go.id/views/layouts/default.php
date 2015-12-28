@@ -131,28 +131,44 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 	<div class="body">		
 		<div class="container">
 			<div class="wrapper"><?php echo $this->dialogDetail == false ? $content : '';?></div>
+			<?php $this->widget('ContactMetaInformation'); //begin.Meta Information ?>
 		</div>
 	</div>
 	<?php //end.BodyContent ?>
+	
+	<div id="mapView"></div>
 
 	<?php //begin.Footer ?>
 	<footer class="clearfix">
 		<div class="menu">
 			<div class="container clearfix">
-				<div class="box about">	
-					1
-				</div>
-				<div class="box link">
-					2
-				</div>
-				<div class="clear nth-child"></div>
-				<div class="box regulation">
-					3
+				<div class="box logo">
+					<a href="<?php echo Yii::app()->createUrl('site/index');?>" title="<?php echo $setting->site_title;?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/public/main/logo_footer.png" alt="<?php echo $setting->site_title;?>" /></a>
 				</div>
 				<div class="clear"></div>
-				<div class="box address">
-					4
-				</div>			
+				<div class="box about">	
+					<h3>Tentang PGSP</h3>
+					<ul>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>1,'t'=>Utility::getUrlTitle(Phrase::trans(1501, 2))))?>" title="<?php echo Phrase::trans(1501, 2);?>"><?php echo Phrase::trans(1501, 2);?></a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>6,'t'=>Utility::getUrlTitle(Phrase::trans(1539, 2))))?>" title="<?php echo Phrase::trans(1539, 2);?>">Sejarah PGSP</a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>5,'t'=>Utility::getUrlTitle(Phrase::trans(1509, 2))))?>" title="<?php echo Phrase::trans(1509, 2);?>">Visi dan Misi</a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>7,'t'=>Utility::getUrlTitle(Phrase::trans(1541, 2))))?>" title="<?php echo Phrase::trans(1541, 2);?>"><?php echo Phrase::trans(1541, 2);?></a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>8,'t'=>Utility::getUrlTitle(Phrase::trans(1543, 2))))?>" title="<?php echo Phrase::trans(1543, 2);?>"><?php echo Phrase::trans(1543, 2);?></a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('support/contact/feedback')?>" title="Kontak Kami">Kontak Kami</a></li>
+					</ul>
+				</div>
+				<div class="clear nth-child"></div>
+				<div class="box link">
+					<h3>Link Terkait</h3>
+					<ul>
+						<li><a target="_blank" href="http://big.go.id/" title="Badan Informasi Geospasial">Badan Informasi Geospasial</a></li>
+						<li><a target="_blank" href="http://tanahair.indonesia.go.id/" title="Geospasial Untuk Negeri">Geospasial Untuk Negeri</a></li>
+					</ul>
+				</div>
+				<div class="box another">
+					<h3>Link Terkait</h3>
+					3
+				</div>
 			</div>
 		</div>
 		<div class="container copyright">
