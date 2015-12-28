@@ -126,6 +126,11 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 	
 	</header>
 	<?php //end.Header ?>
+	
+	<?php if($module == null && $currentAction == 'site/index') {
+		$this->widget('MainArticleRecent'); //begin.Article Recent
+		$this->widget('MainAlbumRecents'); //begin.Album Recent
+	}?>
 
 	<?php //begin.BodyContent ?>
 	<div class="body">		

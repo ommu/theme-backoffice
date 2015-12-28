@@ -45,7 +45,6 @@
 	<?php } else {
 		echo $content;
 	}?>
-	aaaaaaaaaaaaaa
 </div>
 
 <?php $this->endContent(); ?>

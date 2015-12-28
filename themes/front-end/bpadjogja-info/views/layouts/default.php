@@ -231,7 +231,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>8,'t'=>Utility::getUrlTitle(Phrase::trans(1585, 2))))?>" title="<?php echo Phrase::trans(1585, 2);?>">Peta BPAD</a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>9,'t'=>Utility::getUrlTitle(Phrase::trans(1587, 2))))?>" title="<?php echo Phrase::trans(1587, 2);?>">Denah Ruangan</a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('support/contact/feedback')?>" title="Kontak Kami">Kontak Kami</a></li>
-					</ul>					
+					</ul>
 				</div>
 				<div class="box link">
 					<h3>Link Terkait</h3>
