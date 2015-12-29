@@ -1,6 +1,6 @@
 <?php
 
-class MainArticleRecent extends CWidget
+class MainArticleNewsRecent extends CWidget
 {
 
 	public function init() {
@@ -31,7 +31,7 @@ class MainArticleRecent extends CWidget
 			
 		$model = Articles::model()->findAll($criteria);
 
-		$this->render('main_article_recent',array(
+		$this->render('main_article_news_recent',array(
 			'model' => $model,
 		));	
 	}
