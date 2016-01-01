@@ -1,6 +1,6 @@
 <?php
 
-class MainAlbumRecents extends CWidget
+class AlbumRecents extends CWidget
 {
 
 	public function init() {
@@ -27,7 +27,7 @@ class MainAlbumRecents extends CWidget
 			
 		$model = Albums::model()->findAll($criteria);
 
-		$this->render('main_album_recents',array(
+		$this->render('album_recents',array(
 			'model' => $model,
 		));	
 	}

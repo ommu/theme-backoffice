@@ -90,6 +90,13 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 		$cs->registerCssFile(Yii::app()->request->baseUrl.'/externals/content.css');
 		$cs->registerCoreScript('jquery', CClientScript::POS_END);
 		$cs->registerScriptFile(Yii::app()->theme->baseUrl.'/js/custom/custom.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->request->baseUrl.'/externals/support/plugin/custom.js', CClientScript::POS_END);
+$js = <<<EOP
+	//$(document).ready(function() {
+		initialize();
+	//});
+EOP;
+		$cs->registerScript('maps', $js, CClientScript::POS_END);
 		
 		//Javascript Attribute
 		$jsAttribute = array(
@@ -116,7 +123,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
   </script>
   <?php echo $setting->general_include != '' ? $setting->general_include : ''?>
   <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl?>/favicon.ico" />
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <style type="text/css"></style>
  </head>
  <body <?php echo $this->dialogDetail == true ? 'style="overflow-y: hidden;"' : '';?>>
@@ -128,9 +135,14 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 	<?php //end.Header ?>
 	
 	<?php if($module == null && $currentAction == 'site/index') {
-		$this->widget('MainArticleNewsRecent'); //begin.Article Recent
-		$this->widget('MainAlbumRecents'); //begin.Album Recent
+		$this->widget('BannerMainRecent', array(
+			'category'=>1,
+		));
+		$this->widget('ArticleMainNewsRecent'); //begin.Article Recent
+		$this->widget('AlbumMainRecents'); //begin.Album Recent
 	}?>
+	<?php if($module == null && $currentAction == 'site/index') {?>
+	<?php }?>
 
 	<?php //begin.BodyContent ?>
 	<div class="body">		
@@ -155,24 +167,30 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 					<h3>Tentang PGSP</h3>
 					<ul>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>1,'t'=>Utility::getUrlTitle(Phrase::trans(1501, 2))))?>" title="<?php echo Phrase::trans(1501, 2);?>"><?php echo Phrase::trans(1501, 2);?></a></li>
-						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>6,'t'=>Utility::getUrlTitle(Phrase::trans(1539, 2))))?>" title="<?php echo Phrase::trans(1539, 2);?>">Sejarah PGSP</a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>6,'t'=>Utility::getUrlTitle(Phrase::trans(1539, 2))))?>" title="<?php echo Phrase::trans(1539, 2);?>"><?php echo Phrase::trans(1539, 2);?></a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>5,'t'=>Utility::getUrlTitle(Phrase::trans(1509, 2))))?>" title="<?php echo Phrase::trans(1509, 2);?>">Visi dan Misi</a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>2,'t'=>Utility::getUrlTitle(Phrase::trans(1503, 2))))?>" title="<?php echo Phrase::trans(1503, 2);?>"><?php echo Phrase::trans(1503, 2);?></a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('article/site/index', array('category'=>1,'t'=>Utility::getUrlTitle(Phrase::trans(1531, 2))))?>" title="<?php echo Phrase::trans(1531, 2);?>"><?php echo Phrase::trans(1531, 2);?></a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('article/site/index', array('category'=>3,'t'=>Utility::getUrlTitle(Phrase::trans(1547, 2))))?>" title="<?php echo Phrase::trans(1547, 2);?>"><?php echo Phrase::trans(1547, 2);?></a></li>
+						<?php /*
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>7,'t'=>Utility::getUrlTitle(Phrase::trans(1541, 2))))?>" title="<?php echo Phrase::trans(1541, 2);?>"><?php echo Phrase::trans(1541, 2);?></a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>8,'t'=>Utility::getUrlTitle(Phrase::trans(1543, 2))))?>" title="<?php echo Phrase::trans(1543, 2);?>"><?php echo Phrase::trans(1543, 2);?></a></li>
+						*/?>
 						<li><a href="<?php echo Yii::app()->createUrl('support/contact/feedback')?>" title="Kontak Kami">Kontak Kami</a></li>
+						
 					</ul>
 				</div>
 				<div class="clear nth-child"></div>
 				<div class="box link">
+					<h3>Publikasi</h3>
+					<?php $this->widget('ArticleFooterPublicationRecent'); ?>
+				</div>
+				<div class="box another">
 					<h3>Link Terkait</h3>
 					<ul>
 						<li><a target="_blank" href="http://big.go.id/" title="Badan Informasi Geospasial">Badan Informasi Geospasial</a></li>
 						<li><a target="_blank" href="http://tanahair.indonesia.go.id/" title="Geospasial Untuk Negeri">Geospasial Untuk Negeri</a></li>
 					</ul>
-				</div>
-				<div class="box another">
-					<h3>Link Terkait</h3>
-					3
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 <?php
 
-class MainArticleNewsRecent extends CWidget
+class ArticleRecent extends CWidget
 {
 
 	public function init() {
@@ -15,6 +15,8 @@ class MainArticleNewsRecent extends CWidget
 		$controller = strtolower(Yii::app()->controller->id);
 		$action = strtolower(Yii::app()->controller->action->id);
 		$currentAction = strtolower(Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
+		$currentModule = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id);
+		$currentModuleAction = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
 		
 		//import model
 		Yii::import('application.modules.article.models.Articles');
@@ -31,7 +33,13 @@ class MainArticleNewsRecent extends CWidget
 			
 		$model = Articles::model()->findAll($criteria);
 
-		$this->render('main_article_news_recent',array(
+		$this->render('article_recent',array(
+			'module'=>$module,
+			'controller'=>$controller,
+			'action'=>$action,
+			'currentAction'=>$currentAction,
+			'currentModule'=>$currentModule,
+			'currentModuleAction'=>$currentModuleAction,
 			'model' => $model,
 		));	
 	}

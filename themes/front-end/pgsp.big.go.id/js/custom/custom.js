@@ -1,20 +1,3 @@
-(function($) {
-	var map;
-	var haightAshbury = new google.maps.LatLng(-7.778435, 110.366586);
-    var mapOptions = {
-      zoom: 13,
-      center: haightAshbury,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    setTimeout(function() {
-        map = new google.maps.Map(document.getElementById('mapView'), mapOptions);
-
-        //addMarkers(props, map);
-    }, 300);
-
-})(jQuery);
-
 /*custom.js
 Adding custom javascript or jquery function
 * Copyright (c) 2014, Ommu Platform. All rights reserved.
