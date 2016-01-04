@@ -4,8 +4,10 @@
 		<h2><span>Photo Album</span></h2>
 		<div class="clearfix">
 			<?php
+			$i = 0;
 			//for($i=1;$i<=4;$i++) {
 			foreach($model as $key => $val) {
+				$i++;
 				if($val->media_id != 0)
 					$images = Yii::app()->request->baseUrl.'/public/album/'.$val->album_id.'/'.$val->cover->media;
 				else					
@@ -25,7 +27,9 @@
 						<a class="readmore" href="<?php echo Yii::app()->createUrl('album/site/view', array('id'=>$val->album_id, 't'=>Utility::getUrlTitle($val->title)))?>" title="<?php echo $val->title?>">Selengkapnya</a>
 					</div>
 				</div>
-			<?php }
+			<?php //if($i == 2)
+				//echo '<div class="clear"></div>';
+			}
 			//}?>
 		</div>
 	</div>

@@ -23,7 +23,7 @@ class AlbumMainRecents extends CWidget
 			':publish'=>1,
 		);
 		$criteria->order = 'creation_date DESC';
-		$criteria->limit = 3;
+		$criteria->limit = 4;
 			
 		$model = Albums::model()->findAll($criteria);
 

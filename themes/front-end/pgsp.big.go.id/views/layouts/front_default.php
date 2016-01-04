@@ -20,7 +20,9 @@
 	} else {
 		if($controller == 'site')
 			$class = $module;
-			if(in_array($module, array('album','article')))
+			if(in_array($currentModule, array('album/search','article/search')))
+				$class = 'search';
+			else if(in_array($module, array('album','article')))
 				$class = 'module';
 		else
 			$class = $module.'-'.$controller;

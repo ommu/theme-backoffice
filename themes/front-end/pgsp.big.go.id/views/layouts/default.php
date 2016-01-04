@@ -130,7 +130,31 @@ EOP;
  
 	<?php //begin.Header ?>
 	<header>
-	
+		<div class="container">
+			<?php //begin.Logo ?>
+			<div class="logo">
+				<a href="<?php echo Yii::app()->createUrl('site/index');?>" title="<?php echo $setting->site_title;?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/public/main/logo_footer.png" alt="<?php echo $setting->site_title;?>" /></a>
+			</div>
+			
+			<?php //begin.Mainmenu ?>
+			<div class="mainmenu clearfix">
+				<?php //begin.Menu ?>
+				<div class="menu">
+					<?php $this->widget('FrontHeaderMenu', array(
+						'type'=>true,
+					)); ?>	
+				</div>
+				<?php //begin.Search ?>
+				<div class="search">
+					<?php $form=$this->beginWidget('CActiveForm', array(
+						'action'=>Yii::app()->createUrl('article/search/result'),
+						'method'=>'get',
+					)); ?>
+						<input type="text" name="keyword" placeholder="Search"/>
+					<?php $this->endWidget(); ?>
+				</div>
+			</div>
+		</div>
 	</header>
 	<?php //end.Header ?>
 	
@@ -170,8 +194,6 @@ EOP;
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>6,'t'=>Utility::getUrlTitle(Phrase::trans(1539, 2))))?>" title="<?php echo Phrase::trans(1539, 2);?>"><?php echo Phrase::trans(1539, 2);?></a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>5,'t'=>Utility::getUrlTitle(Phrase::trans(1509, 2))))?>" title="<?php echo Phrase::trans(1509, 2);?>">Visi dan Misi</a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>2,'t'=>Utility::getUrlTitle(Phrase::trans(1503, 2))))?>" title="<?php echo Phrase::trans(1503, 2);?>"><?php echo Phrase::trans(1503, 2);?></a></li>
-						<li><a href="<?php echo Yii::app()->createUrl('article/site/index', array('category'=>1,'t'=>Utility::getUrlTitle(Phrase::trans(1531, 2))))?>" title="<?php echo Phrase::trans(1531, 2);?>"><?php echo Phrase::trans(1531, 2);?></a></li>
-						<li><a href="<?php echo Yii::app()->createUrl('article/site/index', array('category'=>3,'t'=>Utility::getUrlTitle(Phrase::trans(1547, 2))))?>" title="<?php echo Phrase::trans(1547, 2);?>"><?php echo Phrase::trans(1547, 2);?></a></li>
 						<?php /*
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>7,'t'=>Utility::getUrlTitle(Phrase::trans(1541, 2))))?>" title="<?php echo Phrase::trans(1541, 2);?>"><?php echo Phrase::trans(1541, 2);?></a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>8,'t'=>Utility::getUrlTitle(Phrase::trans(1543, 2))))?>" title="<?php echo Phrase::trans(1543, 2);?>"><?php echo Phrase::trans(1543, 2);?></a></li>
@@ -188,6 +210,9 @@ EOP;
 				<div class="box another">
 					<h3>Link Terkait</h3>
 					<ul>
+						<li><a href="<?php echo Yii::app()->createUrl('article/site/index', array('category'=>1,'t'=>Utility::getUrlTitle(Phrase::trans(1531, 2))))?>" title="<?php echo Phrase::trans(1531, 2);?>"><?php echo Phrase::trans(1531, 2);?></a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('article/site/index', array('category'=>3,'t'=>Utility::getUrlTitle(Phrase::trans(1547, 2))))?>" title="<?php echo Phrase::trans(1547, 2);?>"><?php echo Phrase::trans(1547, 2);?></a></li>
+						<li><a href="<?php echo Yii::app()->createUrl('album/site/index')?>" title="Galeri Foto">Galeri Foto</a></li>
 						<li><a target="_blank" href="http://big.go.id/" title="Badan Informasi Geospasial">Badan Informasi Geospasial</a></li>
 						<li><a target="_blank" href="http://tanahair.indonesia.go.id/" title="Geospasial Untuk Negeri">Geospasial Untuk Negeri</a></li>
 					</ul>
