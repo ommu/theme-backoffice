@@ -56,15 +56,15 @@
 				*/?>
 				
 				<?php if(!($module == 'article' && $controller == 'news/site')) {
-					$this->widget('application.modules.article.components.FrontArticleRecentNews');
-					$this->widget('application.modules.article.components.FrontArticleRecentAnnouncement');
+					$this->widget('ArticleRecentNews');
+					$this->widget('ArticleRecentAnnouncement');
 				}
 				if($module != 'album')
-					$this->widget('application.modules.album.components.FrontAlbumRecents');
+					$this->widget('AlbumRecents');
 				if($module != 'video')
-					$this->widget('application.modules.video.components.FrontVideoRecents');
+					$this->widget('VideoRecents');
 				if($module != 'article' || ($module == 'article' && !in_array($controller, array('site','archive/site'))))
-					$this->widget('application.modules.article.components.FrontArticleRecentArticle');
+					$this->widget('ArticleRecentArticle');
 				?>
 			</div>
 		</div>
@@ -110,10 +110,10 @@
 
 <?php if($this->adsSidebar == false) {?>
 <div class="main article clearfix">
-	<?php $this->widget('application.modules.article.components.FrontArticleRecentNews');
-	$this->widget('application.modules.album.components.FrontAlbumRecents');
+	<?php $this->widget('ArticleRecentNews');
+	$this->widget('AlbumRecents');
 	echo '<div class="clear"></div>';
-	$this->widget('application.modules.video.components.FrontVideoRecents');
+	$this->widget('VideoRecents');
 	?>
 </div>
 

@@ -203,7 +203,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 	<div class="body">		
 		<div class="container">
 			<?php if($module == null && $currentAction == 'site/index') {
-				$this->widget('application.modules.banner.components.FrontBannerRecent', array(
+				$this->widget('BannerMainRecent', array(
 					'category'=>1,
 				));
 			}?>
@@ -261,7 +261,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 				<div class="clear"></div>
 				<div class="box address">
 					<h2>Badan Perpustakaan dan Arsip Daerah<br/><span>Daerah Istimewa Yogyakarta</span></h2>
-					<?php $this->widget('application.modules.support.components.FrontContactDetails'); ?>
+					<?php $this->widget('SupportContactDetails'); ?>
 				</div>
 			</div>
 		</div>
