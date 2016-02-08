@@ -23,13 +23,14 @@ foreach($char as $val) {
 }
 return $names;
 }
- 
+
 ?>
 <?php echo "<?php\n"; ?>
 /**
  * <?php echo $modelClass."\n"; ?>
  * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
- * @copyright Copyright (c) 2015 Ommu Platform (ommu.co)
+ * @copyright Copyright (c) 2016 Ommu Platform (ommu.co)
+ * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
  * @link http://company.ommu.co
  * @contact (+62)856-299-4114
  *
@@ -53,7 +54,14 @@ return $names;
 <?php if(!empty($relations)): ?>
  *
  * The followings are the available model relations:
-<?php foreach($relations as $name=>$relation): ?>
+<?php 
+	/*
+	echo '<pre>';
+	print_r($relations);
+	echo '</pre>';
+	*/
+	
+foreach($relations as $name=>$relation): ?>
  * @property <?php
 	if (preg_match("~^array\(self::([^,]+), '([^']+)', '([^']+)'\)$~", $relation, $matches))
     {
@@ -232,7 +240,7 @@ foreach($columns as $name=>$column)
 	}
 }
 	echo "\n\t\tif(!isset(\$_GET['{$modelClass}_sort']))\n";
-	echo "\t\t\t\$criteria->order = '$isPrimaryKey DESC';\n";
+	echo "\t\t\t\$criteria->order = 't.$isPrimaryKey DESC';\n";
 ?>
 
 		return new CActiveDataProvider($this, array(

@@ -11,7 +11,8 @@
  * @var $model <?php echo $this->getModelClass()."\n"; ?>
  *
  * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
- * @copyright Copyright (c) 2015 Ommu Platform (ommu.co)
+ * @copyright Copyright (c) 2016 Ommu Platform (ommu.co)
+ * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
  * @link http://company.ommu.co
  * @contect (+62)856-299-4114
  *
@@ -39,8 +40,47 @@ echo "<?php //end.Messages ?>\n";?>
 	'data'=>$model,
 	'attributes'=>array(
 <?php
-foreach($this->tableSchema->columns as $column)
-	echo "\t\t'".$column->name."',\n";
+/*
+echo '<pre>';
+print_r($this->tableSchema);
+print_r($this->tableSchema->columns);
+echo '</pre>';
+//echo exit();
+*/
+
+foreach($this->tableSchema->columns as $name=>$column)
+	if(in_array($column->name, array('publish','status'))) {
+		echo "\t\tarray(\n";
+		echo "\t\t\t'name'=>'$name',\n";
+		echo "\t\t\t'value'=>\$model->$name == '1' ? Chtml::image(Yii::app()->theme->baseUrl.'/images/icons/publish.png') : Chtml::image(Yii::app()->theme->baseUrl.'/images/icons/unpublish.png'),\n";
+		echo "\t\t\t//'value'=>\$model->$name,\n";
+		echo "\t\t),\n";		
+	} else if($column->dbType == 'text') {
+		echo "\t\tarray(\n";
+		echo "\t\t\t'name'=>'$name',\n";
+		echo "\t\t\t'value'=>'value'=>\$model->$name != '' ? \$model->$name : '-',\n";
+		echo "\t\t\t//'value'=>'value'=>\$model->$name != '' ? CHtml::link(\$model->$name, Yii::app()->request->baseUrl.'/public/visit/'.\$model->$name, array('target' => '_blank')) : '-',\n";
+		echo "\t\t\t'type'=>'raw',\n";
+		echo "\t\t),\n";
+	} else if(in_array($column->dbType, array('timestamp','datetime','date'))) {
+		if(in_array($column->dbType, array('timestamp','datetime'))) {
+			echo "\t\tarray(\n";
+			echo "\t\t\t'name'=>'$name',\n";
+			echo "\t\t\t'value'=>Utility::dateFormat(\$model->$name, true),\n";
+			echo "\t\t),\n";
+		} else {
+			echo "\t\tarray(\n";
+			echo "\t\t\t'name'=>'$name',\n";
+			echo "\t\t\t'value'=>Utility::dateFormat(\$model->$name),\n";
+			echo "\t\t),\n";			
+		}
+	} else {
+		echo "\t\tarray(\n";
+		echo "\t\t\t'name'=>'$name',\n";
+		echo "\t\t\t'value'=>\$model->$name,\n";		
+		echo "\t\t\t//'value'=>'value'=>\$model->$name != '' ? \$model->$name : '-',\n";
+		echo "\t\t),\n";
+	}
 ?>
 	),
 )); ?>

@@ -30,7 +30,8 @@ $label = $this->pluralize($this->class2name($this->modelClass));
  *	performAjaxValidation
  *
  * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
- * @copyright Copyright (c) 2015 Ommu Platform (ommu.co)
+ * @copyright Copyright (c) 2016 Ommu Platform (ommu.co)
+ * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
  * @link http://company.ommu.co
  * @contect (+62)856-299-4114
  *
