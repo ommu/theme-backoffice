@@ -1,10 +1,10 @@
 <?php
 	$menuRender = 0;
-	if(($module == null && in_array($controller, array('admin'))) || ($module != null && (in_array($module, array('report')) || ($module == 'support' && (!in_array($currentAction, array('o/mail/setting')) && !in_array($controller, array('o/contact','o/contactcategory'))))))) {
+	if(($module == null && in_array($controller, array('admin'))) || ($module != null && (in_array($module, array('report')) || ($module == 'support' && (!in_array($currentAction, array('o/mail/setting')) && !in_array($controller, array('o/contact','o/contactcategory','o/widget'))))))) {
 		$menuRender = 1;
 		$title = 'Submenu';
 		
-	} elseif($module == null && in_array($controller, array('page','contentmenu','pluginmenu','module','globaltag','anotherdetail','author','authorcontact','translate'))) {
+	} elseif($module == null && in_array($controller, array('page','pluginmenu','module','globaltag','anotherdetail','author','authorcontact','translate'))) {
 		$menuRender = 2;
 		$title = 'Submenu';
 		
@@ -12,7 +12,7 @@
 		$menuRender = 3;
 		$title = 'Submenu';
 		
-	} elseif($module == null && in_array($controller, array('settings','language','phrase','theme','locale','pluginphrase','meta','template','zonecountry','zoneprovince','zonecity','zonedistrict','zonevillage')) || ($module != null && ($module == 'support' && (in_array($currentAction, array('o/mail/setting')) || in_array($controller, array('o/contact','o/contactcategory')))))) {
+	} elseif($module == null && in_array($controller, array('settings','language','phrase','theme','locale','pluginphrase','meta','template','zonecountry','zoneprovince','zonecity','zonedistrict','zonevillage')) || ($module != null && ($module == 'support' && (in_array($currentAction, array('o/mail/setting')) || in_array($controller, array('o/contact','o/contactcategory','o/widget')))))) {
 		$menuRender = 4;
 		$title = 'Submenu';
 	}
@@ -152,7 +152,6 @@
 	<?php } elseif($menuRender == 2) { //Begin.Content ?>
 		<li <?php echo $controller == 'page' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('page/manage');?>" title="<?php echo Phrase::trans(134,0);?>"><?php echo Phrase::trans(134,0);?></a></li>
 		<?php if(Yii::app()->user->level == 1 && $setting->site_admin == 1) {?>
-			<li <?php echo $controller == 'contentmenu' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('contentmenu/manage');?>" title="<?php echo Phrase::trans(205,0);?>"><?php echo Phrase::trans(205,0);?></a></li>
 			<li <?php echo $controller == 'pluginmenu' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('pluginmenu/manage');?>" title="<?php echo Phrase::trans(272,0);?>"><?php echo Phrase::trans(272,0);?></a></li>
 			<li <?php echo $controller == 'module' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('module/manage');?>" title="<?php echo Phrase::trans(135,0);?>"><?php echo Phrase::trans(135,0);?></a></li>
 		<?php }?>
@@ -335,7 +334,15 @@
 					<li <?php echo $controller == 'template' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('template/manage');?>" title="<?php echo Phrase::trans(602,0);?>"><span class="icons">C</span><?php echo Phrase::trans(602,0);?></a></li>
 				</ul>
 			</li>
-			<li <?php echo in_array($controller, array('o/contact','o/contactcategory')) ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('support/o/contact/manage');?>" title="<?php echo Phrase::trans(23061,1);?>"><?php echo Phrase::trans(23061,1);?></a></li>
+			<li <?php echo in_array($controller, array('o/contact','o/contactcategory','o/widget')) ? 'class="submenu-show"' : '' ?>>
+				<a href="<?php echo Yii::app()->createUrl('support/o/contact/manage');?>" title="<?php echo Phrase::trans(23061,1);?>"><?php echo Phrase::trans(23061,1);?></a>
+				<ul>
+					<li <?php echo $controller == 'o/contact' && $action != 'setting' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('support/o/contact/manage');?>" title="Manage Contact"><span class="icons">C</span>Manage Contact</a></li>
+					<li <?php echo $controller == 'o/contactcategory' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('support/o/contactcategory/manage');?>" title="Contact Categories"><span class="icons">C</span>Contact Categories</a></li>
+					<li <?php echo $controller == 'o/contact' && $action == 'setting' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('support/o/contact/setting');?>" title="Address Settings"><span class="icons">C</span>Address Settings</a></li>
+					<li <?php echo $controller == 'o/widget' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('support/o/widget/manage');?>" title="Social Media Widget"><span class="icons">C</span>SosMed Widget</a></li>
+				</ul>				
+			</li>
 			<li <?php echo in_array($controller, array('language','phrase','pluginphrase')) ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('language/manage');?>" title="<?php echo Phrase::trans(137,0);?>"><?php echo Phrase::trans(137,0);?></a></li>
 			<li <?php echo $controller == 'theme' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('theme/manage');?>" title="<?php echo Phrase::trans(240,0);?>"><?php echo Phrase::trans(240,0);?></a></li>
 			<li <?php echo $currentAction == 'settings/analytic' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('settings/analytic');?>" title="<?php echo Phrase::trans(58,0);?>"><?php echo Phrase::trans(58,0);?></a></li>		

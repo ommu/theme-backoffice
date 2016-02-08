@@ -2,22 +2,11 @@
 // Left Position
 if($model != null) {
 	echo '<ul class="left clearfix">';
-	foreach($model as $val) {
-		//list action
-		$arrAction = explode(',', $val->action);
-		$arrControllerAction = array();
-		if(count($arrAction) > 1) {
-			foreach($arrAction as $item) {
-				$arrControllerAction[] = ($module !=null ? $module .'/' : '').Yii::app()->controller->id.'/'.$item;
-			}
-		} else {
-			$arrControllerAction[] = ($module !=null ? $module .'/' : '').Yii::app()->controller->id.'/'.$val->action;				
-		}
-		
+	foreach($model as $val) {		
 		//attr url					
 		$arrAttrParams = array();
-		if($val->attr != '-') {
-			$arrAttr = explode(',', $val->attr);
+		if($val[urlPath][attr] != null) {
+			$arrAttr = explode(',', $val[urlPath][attr]);
 			if(count($arrAttr) > 0) {
 				foreach($arrAttr as $row) {
 					$part = explode('=', $row);
@@ -38,12 +27,10 @@ if($model != null) {
 			}
 		}
 
-		$link = $val->url != '-' ? Yii::app()->controller->createUrl($val->url, $arrAttrParams) : 'javascript:void(0);';
-		$icons = $val->icon != '-' ? $val->icon : 'C';
-	
-		if (in_array($currentAction, $arrControllerAction)) {
-			echo '<li><a href="'.$link.'" title="'.Phrase::trans($val->name, 2).'"><span class="icons">'.$icons.'</span>'.Phrase::trans($val->name, 2).'</a></li>';
-		}
+		$link = $val[urlPath][url] != null ? Yii::app()->controller->createUrl($val[urlPath][url], $arrAttrParams) : 'javascript:void(0);';
+		$icons = $val[urlPath][icon] != null ? $val[urlPath][icon] : 'C';
+		
+		echo '<li><a href="'.$link.'" title="'.$val[urlTitle].'"><span class="icons">'.$icons.'</span>'.$val[urlTitle].'</a></li>';
 	}
 	echo '</ul>';
 } ?>

@@ -448,6 +448,7 @@ fieldset div div.desc {
 }
 fieldset div div.desc img {
 	display: block;
+	max-width: 100%;
 }
 fieldset div div.desc .suggest {
 	padding: 5px 0 0 0;

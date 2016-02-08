@@ -1057,6 +1057,9 @@ div.body .content div[id^="partial"]:last-child {
 
 /* =Detail-View
 -------------------------------------------------------------- */
+.detail-view {
+	background: #fff;
+}
 .detail-view th,
 .detail-view td {
 	padding: 8px 15px;

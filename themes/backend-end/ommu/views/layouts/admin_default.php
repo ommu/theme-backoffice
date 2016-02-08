@@ -31,7 +31,7 @@
 
 			<?php //begin.Content Menu ?>
 			<div class="contentmenu clearfix">
-				<?php $this->widget('AdminContentMenu'); ?>
+				<?php $this->widget('AdminContentMenu');?>
 				<?php $this->widget('application.components.system.CMenu', array(
 					'items'=>$this->menu,
 					'htmlOptions'=>array('class'=>'gridmenu clearfix'),
