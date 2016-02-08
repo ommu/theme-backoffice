@@ -6,6 +6,7 @@
  *	getCurrentTemplate
  *	applyCurrentTheme
  *	getProtocol
+ *	getContentMenu 
  *	flashSuccess
  *	flashError
  *	getDifferenceDay
@@ -78,7 +79,52 @@ class Utility
 			return 'https';
 		return 'http';
 	}
-
+	
+	/**
+	* Return setting template with typePage: public, admin_sweeto or back_office
+	*/
+	public static function getContentMenu() {		
+		$module = strtolower(Yii::app()->controller->module->id);
+		
+		Yii::import('application.components.plugin.Spyc');
+		define('DS', DIRECTORY_SEPARATOR);
+		
+		if($module != null)
+			$contentMenuPath = Yii::getPathOfAlias('application.modules.'.$module).DS.$module.'.yaml';			
+		else
+			$contentMenuPath = Yii::getPathOfAlias('application.ommu').DS.'ommu.yaml';
+			
+		if(file_exists($contentMenuPath)) {
+			$arraySpyc = Spyc::YAMLLoad($contentMenuPath);
+			//print_r($arraySpyc[content_menu]);
+			
+			if($arraySpyc[content_menu] != null) {
+				$contentMenuData = array_filter($arraySpyc[content_menu], function($a){
+					$module = strtolower(Yii::app()->controller->module->id);
+					$controller = strtolower(Yii::app()->controller->id);
+					$action = strtolower(Yii::app()->controller->action->id);
+					//echo $module.'/'.$controller.'/'.$action;
+					
+					$siteType = explode(',', $a[urlRules][siteType]);
+					$userLevel = explode(',', $a[urlRules][userLevel]);
+					
+					if(count($a[urlRules]) == 5) {
+						$actionArray = explode(',', $a[urlRules][2]);
+						return $a[urlRules][0] == $module && $a[urlRules][1] == $controller && in_array($action, $actionArray) && in_array(OmmuSettings::getInfo('site_type'), $siteType) && in_array(Yii::app()->user->level, $userLevel);					
+					} else {
+						$actionArray = explode(',', $a[urlRules][1]);
+						return $a[urlRules][0] == $controller && in_array($action, $actionArray) && in_array(OmmuSettings::getInfo('site_type'), $siteType) && in_array(Yii::app()->user->level, $userLevel);					
+					}
+				});
+				return $contentMenuData;
+				
+			} else
+				return false;
+			
+		} else
+			return false;
+	}
+	
 	/**
 	 * Provide style for success message
 	 *
@@ -202,10 +248,11 @@ class Utility
 	/**
 	 * getTimThumb function
 	 */
-	public static function getTimThumb($src, $width, $height, $zoom, $crop='c') {
-		if(isset(Yii::app()->session['timthumb_url_replace'])) {
-			$src = str_replace(Yii::app()->request->baseUrl, Yii::app()->session['timthumb_url_replace'], $src);		
-		}
+	public static function getTimThumb($src, $width, $height, $zoom, $crop='c') 
+	{
+		if(Yii::app()->params['timthumb_url_replace'] == 1)
+			$src = str_replace(Yii::app()->request->baseUrl, Yii::app()->params['timthumb_url_replace_website'], $src);
+		
 		$image = self::getProtocol().'://'.Yii::app()->request->serverName.Yii::app()->request->baseUrl.'/timthumb.php?src='.$src.'&h='.$height.'&w='.$width.'&zc='.$zoom.'&a='.$crop;
         return $image;
     }
