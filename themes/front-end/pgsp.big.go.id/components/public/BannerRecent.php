@@ -25,11 +25,13 @@ class BannerRecent extends CWidget
 			Yii::import('application.modules.banner.models.BannerCategory');
 
 			$criteria=new CDbCriteria;
-			$criteria->condition = 'publish = :publish AND (expired_date >= curdate() OR published_date >= curdate())';
+			$criteria->condition = 'publish = :publish AND ((expired_date >= curdate() OR published_date >= curdate()) OR ((expired_date = :date OR expired_date = :datestr) OR published_date >= curdate()))';
 			$criteria->params = array(
 				':publish'=>1, 
+			':date'=>'0000-00-00', 
+			':datestr'=>'1970-01-01', 
 			);
-			$criteria->order = 'published_date DESC';
+			$criteria->order = 'expired_date ASC';
 			if($this->category != null)
 				$criteria->compare('cat_id',$this->category);
 				

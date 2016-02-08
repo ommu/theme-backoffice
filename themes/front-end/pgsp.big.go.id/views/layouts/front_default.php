@@ -18,12 +18,12 @@
 		} else
 			$class = $controller;
 	} else {
-		if($controller == 'site')
-			$class = $module;
-			if(in_array($currentModule, array('album/search','article/search')))
-				$class = 'search';
-			else if(in_array($module, array('album','article')))
+		if($controller == 'site') {
+			$class = $module;	
+			if(in_array($module, array('album','article')))
 				$class = 'module';
+		} else if(in_array($currentModule, array('album/search','article/search')))
+			$class = 'search';
 		else
 			$class = $module.'-'.$controller;
 	}
@@ -45,6 +45,12 @@
 			<div class="boxed clearfix">
 				<?php 
 				$this->widget('BannerRecent');
+				$this->widget('SupportSosMedWidget', array(
+					'socialmedia'=>'twitter',
+				));
+				$this->widget('SupportSosMedWidget', array(
+					'socialmedia'=>'facebook',
+				));
 				if($module != 'article')
 					$this->widget('ArticleRecent');
 				if(($module == null && $controller != 'page') || ($module != null))

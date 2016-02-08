@@ -500,6 +500,9 @@ fieldset div div.desc div.cleditorMain {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
+div#ui-datepicker-div {
+	z-index: 100 !important;
+}
 
 /* Fieldset Sidebar ON */
 fieldset.clearfix {}

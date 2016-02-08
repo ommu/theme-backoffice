@@ -759,6 +759,13 @@ function utilityFunction() {
 		return false;
 	});
 	
+	/* Search Button */
+	$(document).on('click', 'header .mainmenu .menu .search', function() {
+		$(this).toggleClass('active');
+		$(this).parents('.container').find('#search').slideToggle();
+		return false;
+	});
+	
 
 }
 utilityFunction();

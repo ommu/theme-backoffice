@@ -12,7 +12,7 @@
 				else
 					$images = Yii::app()->request->baseUrl.'/public/article/article_default.png';?>
 				<div class="box">
-					<div class="number"><?php echo '.0'.$i;?></div>
+					<?php /*<div class="number"><?php echo '.0'.$i;?></div>*/?>
 					<a class="photo" href="<?php echo Yii::app()->createUrl('article/site/view', array('id'=>$val->article_id, 't'=>Utility::getUrlTitle($val->title)))?>" title="<?php echo $val->title?>"><img src="<?php echo Utility::getTimThumb($images, 300, 170, 1)?>" alt="<?php echo $val->title?>" /></a>
 					<div class="span">
 						<div class="meta">

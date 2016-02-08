@@ -92,9 +92,9 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 		$cs->registerScriptFile(Yii::app()->theme->baseUrl.'/js/custom/custom.js', CClientScript::POS_END);
 		$cs->registerScriptFile(Yii::app()->request->baseUrl.'/externals/support/plugin/custom.js', CClientScript::POS_END);
 $js = <<<EOP
-	//$(document).ready(function() {
+	$(document).ready(function() {
 		initialize();
-	//});
+	});
 EOP;
 		$cs->registerScript('maps', $js, CClientScript::POS_END);
 		
@@ -150,10 +150,25 @@ EOP;
 						'action'=>Yii::app()->createUrl('article/search/result'),
 						'method'=>'get',
 					)); ?>
-						<input type="text" name="keyword" placeholder="Search"/>
+						<input type="text" name="keyword" placeholder="Kata Kunci"/>
 					<?php $this->endWidget(); ?>
 				</div>
 			</div>
+			
+			<?php //begin.Search ?>
+			<div id="search" class="clearfix">
+				<?php $form=$this->beginWidget('CActiveForm', array(
+					'action'=>Yii::app()->createUrl('article/search/result'),
+					'method'=>'get',
+					'htmlOptions'=>array(
+						'class'=>'clearfix',
+					),
+				)); ?>
+					<input type="text" name="keyword" placeholder="Kata Kunci"/>
+					<input type="submit" value="Cari"/>
+				<?php $this->endWidget(); ?>
+			</div>
+			
 		</div>
 	</header>
 	<?php //end.Header ?>
@@ -161,6 +176,9 @@ EOP;
 	<?php if($module == null && $currentAction == 'site/index') {
 		$this->widget('BannerMainRecent', array(
 			'category'=>1,
+		));
+		$this->widget('BannerMainFeatureRecent', array(
+			'category'=>2,
 		));
 		$this->widget('ArticleMainNewsRecent'); //begin.Article Recent
 		$this->widget('AlbumMainRecents'); //begin.Album Recent
@@ -177,10 +195,14 @@ EOP;
 	</div>
 	<?php //end.BodyContent ?>
 	
-	<div id="mapView"></div>
+	<div class="maps">
+		<div id="mapView"></div>
+		<a target="_blank" class="redirect" href="https://www.google.co.id/maps/place/Parangtritis+Geomaritime+Science+Park/@-8.0093621,110.3001705,17z/data=!4m2!3m1!1s0x0000000000000000:0x7951238f4cc337a0" title="Parangtritis Geomaritime Science Park (Google Maps)"></a>
+	</div>
 
 	<?php //begin.Footer ?>
 	<footer class="clearfix">
+		<?php /*
 		<div class="menu">
 			<div class="container clearfix">
 				<div class="box logo">
@@ -193,11 +215,7 @@ EOP;
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>1,'t'=>Utility::getUrlTitle(Phrase::trans(1501, 2))))?>" title="<?php echo Phrase::trans(1501, 2);?>"><?php echo Phrase::trans(1501, 2);?></a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>6,'t'=>Utility::getUrlTitle(Phrase::trans(1539, 2))))?>" title="<?php echo Phrase::trans(1539, 2);?>"><?php echo Phrase::trans(1539, 2);?></a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>5,'t'=>Utility::getUrlTitle(Phrase::trans(1509, 2))))?>" title="<?php echo Phrase::trans(1509, 2);?>">Visi dan Misi</a></li>
-						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>2,'t'=>Utility::getUrlTitle(Phrase::trans(1503, 2))))?>" title="<?php echo Phrase::trans(1503, 2);?>"><?php echo Phrase::trans(1503, 2);?></a></li>
-						<?php /*
-						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>7,'t'=>Utility::getUrlTitle(Phrase::trans(1541, 2))))?>" title="<?php echo Phrase::trans(1541, 2);?>"><?php echo Phrase::trans(1541, 2);?></a></li>
-						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>8,'t'=>Utility::getUrlTitle(Phrase::trans(1543, 2))))?>" title="<?php echo Phrase::trans(1543, 2);?>"><?php echo Phrase::trans(1543, 2);?></a></li>
-						*/?>
+						<li><a href="<?php echo Yii::app()->createUrl('page/view', array('id'=>2,'t'=>Utility::getUrlTitle(Phrase::trans(1503, 2))))?>" title="<?php echo Phrase::trans(1503, 2);?>"><?php echo Phrase::trans(1503, 2);?></a></li>						
 						<li><a href="<?php echo Yii::app()->createUrl('support/contact/feedback')?>" title="Kontak Kami">Kontak Kami</a></li>
 						
 					</ul>
@@ -219,6 +237,7 @@ EOP;
 				</div>
 			</div>
 		</div>
+		*/?>
 		<div class="container copyright">
 			<?php $this->widget('FrontFooterCopyright'); ?>
 		</div>

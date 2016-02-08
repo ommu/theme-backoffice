@@ -1,6 +1,6 @@
 <?php
 
-class BannerMainRecent extends CWidget
+class BannerMainFeatureRecent extends CWidget
 {
 	public $category=null;
 
@@ -33,10 +33,11 @@ class BannerMainRecent extends CWidget
 		$criteria->order = 'expired_date ASC';
 		if($this->category != null)
 			$criteria->compare('cat_id',$this->category);
-			
+		//$criteria->limit = 5;
+		
 		$model = Banners::model()->findAll($criteria);
 
-		$this->render('banner_main_recent',array(
+		$this->render('banner_main_feature_recent',array(
 			'module'=>$module,
 			'controller'=>$controller,
 			'action'=>$action,

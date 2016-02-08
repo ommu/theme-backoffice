@@ -16,7 +16,7 @@
 					<a class="photo" href="<?php echo Yii::app()->createUrl('album/site/view', array('id'=>$val->album_id, 't'=>Utility::getUrlTitle($val->title)))?>" title="<?php echo $val->title?>"><img src="<?php echo Utility::getTimThumb($images, 180, 220, 1)?>" alt="<?php echo $val->title?>" /></a>
 					<div class="span">
 						<div class="meta">
-							<a href="<?php echo Yii::app()->createUrl('album/site/view', array('id'=>$val->album_id, 't'=>Utility::getUrlTitle($val->title)))?>" title="<?php echo $val->title?>"><?php echo $val->title?><?php echo $val->title?><?php echo $val->title?></a>
+							<a href="<?php echo Yii::app()->createUrl('album/site/view', array('id'=>$val->album_id, 't'=>Utility::getUrlTitle($val->title)))?>" title="<?php echo $val->title?>"><?php echo $val->title?></a>
 							<div class="date">
 								<i class="fa fa-calendar-check-o"></i><?php echo Utility::dateFormat($val->creation_date);?>
 								<i class="fa fa-bookmark-o"></i><?php echo $val->user->displayname;?>
