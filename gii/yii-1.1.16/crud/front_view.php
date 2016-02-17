@@ -59,7 +59,7 @@ foreach($this->tableSchema->columns as $name=>$column)
 		echo "\t\tarray(\n";
 		echo "\t\t\t'name'=>'$name',\n";
 		echo "\t\t\t'value'=>'value'=>\$model->$name != '' ? \$model->$name : '-',\n";
-		echo "\t\t\t//'value'=>'value'=>\$model->$name != '' ? CHtml::link(\$model->$name, Yii::app()->request->baseUrl.'/public/visit/'.\$model->$name, array('target' => '_blank')) : '-',\n";
+		echo "\t\t\t//'value'=>\$model->$name != '' ? CHtml::link(\$model->$name, Yii::app()->request->baseUrl.'/public/visit/'.\$model->$name, array('target' => '_blank')) : '-',\n";
 		echo "\t\t\t'type'=>'raw',\n";
 		echo "\t\t),\n";
 	} else if(in_array($column->dbType, array('timestamp','datetime','date'))) {
@@ -78,7 +78,7 @@ foreach($this->tableSchema->columns as $name=>$column)
 		echo "\t\tarray(\n";
 		echo "\t\t\t'name'=>'$name',\n";
 		echo "\t\t\t'value'=>\$model->$name,\n";		
-		echo "\t\t\t//'value'=>'value'=>\$model->$name != '' ? \$model->$name : '-',\n";
+		echo "\t\t\t//'value'=>\$model->$name != '' ? \$model->$name : '-',\n";
 		echo "\t\t),\n";
 	}
 ?>

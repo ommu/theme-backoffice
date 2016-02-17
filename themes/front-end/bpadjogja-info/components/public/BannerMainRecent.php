@@ -26,10 +26,12 @@ class BannerMainRecent extends CWidget
 		$criteria->params = array(
 			':publish'=>1, 
 		);
-		$criteria->order = 'published_date DESC';
-		if($this->category != null)
+		$criteria->order = 'expired_date DESC';
+		if($this->category != null) {
 			$criteria->compare('cat_id',$this->category);
-			
+			$criteria->limit = BannerCategory::model()->findByPk($this->category)->limit;
+		}
+		
 		$model = Banners::model()->findAll($criteria);
 
 		$this->render('banner_main_recent',array(

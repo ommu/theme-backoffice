@@ -4,7 +4,7 @@
 	<ul>
 		<?php 
 		foreach($model->data as $key => $val) {?>
-			<li><a terget="_blank" href="<?php echo $val->url;?>" title="<?php echo $val->title?>"><?php echo $val->title?></a></li>
+			<li><a terget="_blank" href="<?php echo $val->url;?>" title="<?php echo ucwords(strtolower($val->title));?>"><?php echo ucwords(strtolower($val->title));?></a></li>
 		<?php }?>
 	</ul>
 </div>
