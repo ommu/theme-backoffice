@@ -26,7 +26,7 @@ class BannerMainRecent extends CWidget
 		$criteria=new CDbCriteria;
 		$criteria->condition = 'publish = :publish AND ((expired_date >= curdate() OR published_date >= curdate()) OR ((expired_date = :date OR expired_date = :datestr) OR published_date >= curdate()))';
 		$criteria->params = array(
-			':publish'=>1, 
+			':publish'=>1,
 			':date'=>'0000-00-00', 
 			':datestr'=>'1970-01-01', 
 		);
