@@ -106,7 +106,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
  <body <?php echo $this->dialogDetail == true ? 'style="overflow-y: hidden;"' : '';?>>
 
 <?php 
-if ($currentAction == 'site/login') {
+if ($module == 'users' && $currentAction == 'admin/login') {
 //if(Yii::app()->user->isGuest) {?>
 	<?php //begin.Notifier ?>
 	<div class="login notifier" <?php echo ($this->dialogDetail == true && !empty($this->dialogWidth)) ? 'name="'.$dialogWidth.'" '.$display : '';?>>

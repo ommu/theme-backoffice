@@ -6,18 +6,16 @@
 	$currentAction = strtolower(Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
 	$currentModule = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id);
 	$currentModuleAction = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
-	if($module == null) {
-		if($currentAction == 'site/login') {
-			$class = 'login';
-		} else {
-			$class = $controller;
-		}
-	} else {
-		if($controller == 'admin') {
+	if($module == null)
+		$class = $controller;
+		
+	else {
+		if($controller == 'admin')
 			$class = $module;
-		} else {
+		else
 			$class = $module.'-'.$controller;
-		}
+		if($module == 'users' && $currentAction == 'admin/login')
+			$class = 'login';
 	}
 ?>
 	
