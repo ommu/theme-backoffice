@@ -2,7 +2,7 @@
 // Left Position
 if($model != null) {
 	echo '<ul class="left clearfix">';
-	foreach($model as $val) {		
+	foreach($model as $val) {
 		//attr url					
 		$arrAttrParams = array();
 		if($val[urlPath][attr] != null) {
