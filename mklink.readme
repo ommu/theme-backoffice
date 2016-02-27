@@ -2,6 +2,9 @@
 gii
 =======
 mklink /J "D:\htdocs\_project_ommu_bootstrap\gii\yii-1.1.16\components\system" "D:\htdocs\_project_ommu_platform\protected\components\system"
+mklink /J "D:\htdocs\_project_ommu_bootstrap\gii\yii-1.1.16\crud" "D:\htdocs\yii-1.1.16\framework\gii\generators\crud\templates\crud_ommu"
+mklink /J "D:\htdocs\_project_ommu_bootstrap\gii\yii-1.1.16\model" "D:\htdocs\yii-1.1.16\framework\gii\generators\model\templates\model_ommu"
+mklink /J "D:\htdocs\_project_ommu_bootstrap\gii\yii-1.1.16\module" "D:\htdocs\yii-1.1.16\framework\gii\generators\module\templates\module_ommu"
 
 -------
 themes
