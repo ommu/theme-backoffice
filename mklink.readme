@@ -1,0 +1,8 @@
+-------
+gii
+=======
+mklink /J "D:\htdocs\_project_ommu_bootstrap\gii\yii-1.1.16\components\system" "D:\htdocs\_project_ommu_platform\protected\components\system"
+
+-------
+themes
+=======
