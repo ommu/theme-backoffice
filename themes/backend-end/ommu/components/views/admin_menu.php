@@ -56,7 +56,7 @@
 
 						$url = Yii::app()->createUrl($val->folder.'/'.$menu[0][urlPath][url], $arrAttrParams);
 						//$titleApps = $val->name;
-						$titleApps = Phrase::trans($val->code, 1);
+						$titleApps = Phrase::trans($val->code, 1) != null ? Phrase::trans($val->code, 1) : $val->name;
 						if($val->folder == $module) {
 							$class = 'class="active"';
 							$title = $val->name;

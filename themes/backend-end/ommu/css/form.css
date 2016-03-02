@@ -540,6 +540,19 @@ fieldset div div.desc div.errorMessage,
 	color: #ff0000;
 }
 
+/* Template */
+fieldset div div.desc a.template {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	display: inline-block;
+	padding: 4px 10px;
+	background: green;
+	color: #fff;
+	font-size: 11px;
+	line-height: 14px;
+}
+
 /* UL Style */
 fieldset div div.desc ul.clearfix {
 	display: block;

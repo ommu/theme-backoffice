@@ -54,11 +54,17 @@ foreach($this->tableSchema->columns as $name=>$column)
 		echo "\t\t\t'name'=>'$name',\n";
 		echo "\t\t\t'value'=>\$model->$name == '1' ? Chtml::image(Yii::app()->theme->baseUrl.'/images/icons/publish.png') : Chtml::image(Yii::app()->theme->baseUrl.'/images/icons/unpublish.png'),\n";
 		echo "\t\t\t//'value'=>\$model->$name,\n";
+		echo "\t\t),\n";
+	} else if(in_array($column->name, array('creation_id','modified_id'))) {
+		echo "\t\tarray(\n";
+		echo "\t\t\t'name'=>'$name',\n";
+		echo "\t\t\t'value'=>\$model->$name,\n";		
+		echo "\t\t\t//'value'=>\$model->$name != 0 ? \$model->$name : '-',\n";
 		echo "\t\t),\n";		
 	} else if($column->dbType == 'text') {
 		echo "\t\tarray(\n";
 		echo "\t\t\t'name'=>'$name',\n";
-		echo "\t\t\t'value'=>'value'=>\$model->$name != '' ? \$model->$name : '-',\n";
+		echo "\t\t\t'value'=>\$model->$name != '' ? \$model->$name : '-',\n";
 		echo "\t\t\t//'value'=>\$model->$name != '' ? CHtml::link(\$model->$name, Yii::app()->request->baseUrl.'/public/visit/'.\$model->$name, array('target' => '_blank')) : '-',\n";
 		echo "\t\t\t'type'=>'raw',\n";
 		echo "\t\t),\n";
@@ -66,14 +72,14 @@ foreach($this->tableSchema->columns as $name=>$column)
 		if(in_array($column->dbType, array('timestamp','datetime'))) {
 			echo "\t\tarray(\n";
 			echo "\t\t\t'name'=>'$name',\n";
-			echo "\t\t\t'value'=>Utility::dateFormat(\$model->$name, true),\n";
+			echo "\t\t\t'value'=>!in_array(\$model->$name, array('0000-00-00 00:00:00','1970-01-01 00:00:00')) ? Utility::dateFormat(\$model->$name, true) : '-',\n";
 			echo "\t\t),\n";
 		} else {
 			echo "\t\tarray(\n";
 			echo "\t\t\t'name'=>'$name',\n";
-			echo "\t\t\t'value'=>Utility::dateFormat(\$model->$name),\n";
+			echo "\t\t\t'value'=>!in_array(\$model->$name, array('0000-00-00','1970-01-01')) ? Utility::dateFormat(\$model->$name) : '-',\n";
 			echo "\t\t),\n";			
-		}
+		}		
 	} else {
 		echo "\t\tarray(\n";
 		echo "\t\t\t'name'=>'$name',\n";

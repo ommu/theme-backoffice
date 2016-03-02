@@ -48,7 +48,7 @@ div[class^="open-dialog"] {
 	cursor: -webkit-zoom-out;
 }
 .dialog {
-	z-index: 980;
+	z-index: 800;
 	background: rgba(0,0,0,0.6);
 	-webkit-overflow-scrolling: touch;
 	overflow-y: scroll;
@@ -134,7 +134,7 @@ div[class^="open-dialog"] {
 
 /* Notifier */
 .notifier {
-	z-index: 990;
+	z-index: 900;
 	background: rgba(0,0,0,0.6);
 	-webkit-overflow-scrolling: touch;
 	overflow-y: scroll;
@@ -1348,9 +1348,14 @@ footer .powered {
 	background: #aaa;	
 }
 
-
 /* =Responsive
 -------------------------------------------------------------- */
+ul.ui-autocomplete,
+div.ui-datepicker,
+div.ui-datepicker * {
+	z-index: 999 !important;
+}
+
 /* Resolution 1280 */
 @media only screen and (max-width:1280px) {
 
