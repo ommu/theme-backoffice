@@ -26,7 +26,7 @@ class ArticleRecentNews extends CWidget
 		$criteria->params = array(
 			':publish'=>1,
 		);
-		$criteria->order = 'published_date DESC';
+		$criteria->order = 'published_date DESC, article_id DESC';
 		$criteria->addInCondition('cat_id',array(2,3,5,6,7,18));
 		//$criteria->compare('cat_id',18);
 		$criteria->limit = ($module == null && $currentAction == 'site/index') ? 5 : 4;
