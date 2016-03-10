@@ -591,9 +591,6 @@ fieldset div div.desc div.redactor-box p {
 fieldset div div.desc div.redactor-box .redactor-editor {
 	padding: 15px;
 }
-div#ui-datepicker-div {
-	z-index: 10 !important;
-}
 
 /* Fieldset Sidebar ON */
 fieldset.clearfix {}
@@ -811,6 +808,7 @@ div.submit-button input {
 */
 
 ul.ui-autocomplete,
+div#ui-datepicker-div,
 div.ui-datepicker,
 div.ui-datepicker * {
 	z-index: 999 !important;
