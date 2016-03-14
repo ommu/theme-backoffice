@@ -197,7 +197,7 @@
 								}
 							}
 						}
-					}				
+					}
 					$submenu = $val[submenu];
 					$class = $submenu != null ? 'class="submenu-show"' : '';
 					$url = $val[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$val[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
