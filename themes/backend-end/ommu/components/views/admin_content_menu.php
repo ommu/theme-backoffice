@@ -72,11 +72,11 @@ if($model != null) {
 				if(count($data[urlRules]) == 5) {
 					$actionArray = explode(',', $data[urlRules][2]);
 					if($data[urlRules][0] == $module && $data[urlRules][1] == $controller && in_array($action, $actionArray) && in_array(OmmuSettings::getInfo('site_type'), $siteType) && in_array(Yii::app()->user->level, $userLevel))
-						echo '<a href="'.$link.'" title="'.$data[urlTitle].'"><span class="icons">'.$icons.'</span>'.$data[urlTitle].'</a>';
+						echo '<li><a href="'.$link.'" title="'.$data[urlTitle].'"><span class="icons">'.$icons.'</span>'.$data[urlTitle].'</a></li>';
 				} else {
 					$actionArray = explode(',', $data[urlRules][1]);
 					if($data[urlRules][0] == $controller && in_array($action, $actionArray) && in_array(OmmuSettings::getInfo('site_type'), $siteType) && in_array(Yii::app()->user->level, $userLevel))
-						echo '<a href="'.$link.'" title="'.$data[urlTitle].'"><span class="icons">'.$icons.'</span>'.$data[urlTitle].'</a>';
+						echo '<li><a href="'.$link.'" title="'.$data[urlTitle].'"><span class="icons">'.$icons.'</span>'.$data[urlTitle].'</a></li>';
 				}
 			}
 			echo '</ul>';
