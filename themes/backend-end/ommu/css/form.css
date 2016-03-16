@@ -292,7 +292,8 @@ a.button:active {
 .notifier select {
 	padding: 4px 4px 4px 7px;
 }
-.notifier .dialog-submit input[type="submit"] {
+.notifier .dialog-submit input[type="submit"],
+.notifier .dialog-submit input[type="button"].active {
 	-webkit-box-shadow: inset 0 1px 0 rgba(152, 155, 160, 0.45);
 	-moz-box-shadow: inset 0 1px 0 rgba(152, 155, 160, 0.45);
 	box-shadow: inset 0 1px 0 rgba(152, 155, 160, 0.45);
@@ -304,12 +305,14 @@ a.button:active {
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
 	color: #f0f0f0;
 }
-.notifier .dialog-submit input[type="submit"]:hover {
+.notifier .dialog-submit input[type="submit"]:hover,
+.notifier .dialog-submit input[type="button"].active:hover {
 	-webkit-box-shadow: 0 1px 0 #a1a5af inset, 0 1px 3px rgba(0, 0, 0, 0.08);
 	-moz-box-shadow: 0 1px 0 #a1a5af inset, 0 1px 3px rgba(0, 0, 0, 0.08);
 	box-shadow: 0 1px 0 #a1a5af inset, 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-.notifier .dialog-submit input[type="submit"]:active {
+.notifier .dialog-submit input[type="submit"]:active,
+.notifier .dialog-submit input[type="button"].active:active {
 	background-image: -moz-linear-gradient(center bottom , #787b83 0pt, #44474e 100%);
 	background-image: -webkit-linear-gradient(bottom,#787b83 0,#44474e 100%);
 	background-image: linear-gradient(to bottom,#787b83 0,#44474e 100%);
