@@ -125,28 +125,7 @@ if ($module == 'users' && $currentAction == 'admin/login') {
 
 	<?php //begin.Header ?>
 	<header class="clearfix">
-		<?php //begin.Flag and Language ?>
-		<div class="flag learfix">
-			<?php
-			if(!empty($_GET)) {
-				$attrEn = array_merge($_GET, array('lang'=>'en'));
-				$attrId = array_merge($_GET, array('lang'=>'id'));
-			} else {
-				$attrEn = array('lang'=>'en');
-				$attrId = array('lang'=>'id');
-			}
-			if($module == 'null') {
-				$urlEn = Yii::app()->createUrl($controller.'/'.$action, $attrEn);
-				$urlId = Yii::app()->createUrl($controller.'/'.$action, $attrId);
-			} else {
-				$urlEn = Yii::app()->createUrl($module.'/'.$controller.'/'.$action, $attrEn);
-				$urlId = Yii::app()->createUrl($module.'/'.$controller.'/'.$action, $attrId);
-			}
-			?>
-			<a off_address="" href="<?php echo $urlEn;?>" title="English"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/icons/flag_en.png" /></a>
-			<a off_address="" href="<?php echo $urlId;?>" title="Indonesia"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/icons/flag_id.png" /></a>
-		</div>
-		<?php //end.Flag and Language ?>
+		<?php $this->widget('LanguageFlag'); ?>
 		
 		<?php //begin.Loading ?>
 		<div class="loading"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/icons/ajax_loader.gif" /><span>Loading...</span></div>
