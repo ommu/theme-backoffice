@@ -12,7 +12,7 @@
 		$menuRender = 3;
 		$title = 'Submenu';
 		
-	} elseif($module == null && in_array($controller, array('settings','language','phrase','theme','locale','pluginphrase','meta','template','zonecountry','zoneprovince','zonecity','zonedistrict','zonevillage')) || ($module != null && ($module == 'support' && (in_array($currentAction, array('o/mail/setting')) || in_array($controller, array('o/contact','o/contactcategory','o/widget')))))) {
+	} elseif($module == null && in_array($controller, array('settings','language','theme','locale','meta','template','zonecountry','zoneprovince','zonecity','zonedistrict','zonevillage')) || ($module != null && ($module == 'support' && (in_array($currentAction, array('o/mail/setting')) || in_array($controller, array('o/contact','o/contactcategory','o/widget')))))) {
 		$menuRender = 4;
 		$title = 'Submenu';
 	}
@@ -65,7 +65,7 @@
 						}
 
 						$item = '<li '.$class.'>';
-						$item .= '<a href="'.$url.'" title="'.$titleApps.'">'.$titleApps.'</a>';
+						$item .= '<a href="'.$url.'" title="'.Yii::t('phrase', $titleApps).'">'.Yii::t('phrase', $titleApps).'</a>';						
 						$item .= '</li>';
 						echo $item;
 					}
@@ -110,7 +110,7 @@
 					}
 
 					$item = '<li '.$class.'>';
-					$item .= '<a href="'.$url.'" title="'.$titleApps.'">'.$titleApps.'</a>';
+					$item .= '<a href="'.$url.'" title="'.Yii::t('phrase', $titleApps).'">'.Yii::t('phrase', $titleApps).'</a>';
 					if(count($menu) > 1) {
 						$item .= '<ul>';
 						foreach($menu as $key => $data) {
@@ -125,7 +125,7 @@
 							$icons = $data[urlPath][icon] != null ? $data[urlPath][icon] : 'C';
 							$url = $data[urlPath][url] != null ? Yii::app()->createUrl($val->folder.'/'.$data[urlPath][url]) : 'javascript:void(0)';
 
-							$item .= '<li '.$liClass.'><a href="'.$url.'" title="'.$data[urlTitle].'"><span class="icons">'.$icons.'</span>'.$data[urlTitle].'</a></li>';
+							$item .= '<li '.$liClass.'><a href="'.$url.'" title="'.Yii::t('phrase', $data[urlTitle]).'"><span class="icons">'.$icons.'</span>'.Yii::t('phrase', $data[urlTitle]).'</a></li>';
 						}	
 						$item .= '</ul>';
 					}
@@ -203,7 +203,7 @@
 					$url = $val[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$val[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
 					
 					echo '<li '.$class.'>';
-					echo '<a '.$aClass.' href="'.$url.'" title="'.$val[urlTitle].'">'.$val[urlTitle].'</a>';
+					echo '<a '.$aClass.' href="'.$url.'" title="'.Yii::t('phrase', $val[urlTitle]).'">'.Yii::t('phrase', $val[urlTitle]).'</a>';
 					if($submenu != null) {
 						echo '<ul>';
 						foreach($submenu as $key => $data) {
@@ -245,7 +245,7 @@
 									}
 								}
 								$url = $val[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$data[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
-								echo '<li '.$subLiClass.'><a href="'.$url.'" title="'.$data[urlTitle].'"><span class="icons">'.$subIcons.'</span>'.$data[urlTitle].'</a></li>';
+								echo '<li '.$subLiClass.'><a href="'.$url.'" title="'.Yii::t('phrase', $data[urlTitle]).'"><span class="icons">'.$subIcons.'</span>'.Yii::t('phrase', $data[urlTitle]).'</a></li>';
 							}								
 						}
 						echo '</ul>';
@@ -301,7 +301,7 @@
 					$url = $val[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$val[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
 					
 					echo '<li '.$class.'>';
-					echo '<a '.$aClass.' href="'.$url.'" title="'.$val[urlTitle].'">'.$val[urlTitle].'</a>';
+					echo '<a '.$aClass.' href="'.$url.'" title="'.Yii::t('phrase', $val[urlTitle]).'">'.Yii::t('phrase', $val[urlTitle]).'</a>';
 					if($submenu != null) {
 						echo '<ul>';
 						foreach($submenu as $key => $data) {
@@ -350,7 +350,7 @@
 									}
 								}
 								$url = $val[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$data[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
-								echo '<li '.$subLiClass.'><a href="'.$url.'" title="'.$data[urlTitle].'"><span class="icons">'.$subIcons.'</span>'.$data[urlTitle].'</a></li>';
+								echo '<li '.$subLiClass.'><a href="'.$url.'" title="'.Yii::t('phrase', $data[urlTitle]).'"><span class="icons">'.$subIcons.'</span>'.Yii::t('phrase', $data[urlTitle]).'</a></li>';
 							}
 						}
 						echo '</ul>';
@@ -392,7 +392,7 @@
 					<li <?php echo $controller == 'o/widget' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('support/o/widget/manage');?>" title="Social Media Widget"><span class="icons">C</span>SosMed Widget</a></li>
 				</ul>				
 			</li>
-			<li <?php echo in_array($controller, array('language','phrase','pluginphrase')) ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('language/manage');?>" title="<?php echo Yii::t('phrase', 'Language Settings');?>"><?php echo Yii::t('phrase', 'Language Settings');?></a></li>
+			<li <?php echo in_array($controller, array('language')) ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('language/manage');?>" title="<?php echo Yii::t('phrase', 'Language Settings');?>"><?php echo Yii::t('phrase', 'Language Settings');?></a></li>
 			<li <?php echo $controller == 'theme' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('theme/manage');?>" title="<?php echo Yii::t('phrase', 'Theme Settings');?>"><?php echo Yii::t('phrase', 'Theme Settings');?></a></li>
 			<li <?php echo $currentAction == 'settings/analytic' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('settings/analytic');?>" title="<?php echo Yii::t('phrase', 'Google Analytics Settings');?>"><?php echo Yii::t('phrase', 'Google Analytics Settings');?></a></li>		
 		<?php } else {?>

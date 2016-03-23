@@ -36,7 +36,8 @@ if($model != null) {
 		$icons = $val[urlPath][icon] != null ? $val[urlPath][icon] : 'C';
 		
 		echo '<li>';
-		echo '<a href="'.$link.'" title="'.$val[urlTitle].'"><span class="icons">'.$icons.'</span>'.$val[urlTitle].'</a>';
+		echo '<a href="'.$link.'" title="'.Yii::t('phrase', $val[urlTitle]).'"><span class="icons">'.$icons.'</span>'.Yii::t('phrase', $val[urlTitle]).'</a>';
+		
 		if($submenu != null) {
 			echo '<ul>';
 			foreach($submenu as $key => $data) {
@@ -72,11 +73,11 @@ if($model != null) {
 				if(count($data[urlRules]) == 5) {
 					$actionArray = explode(',', $data[urlRules][2]);
 					if($data[urlRules][0] == $module && $data[urlRules][1] == $controller && in_array($action, $actionArray) && in_array(OmmuSettings::getInfo('site_type'), $siteType) && in_array(Yii::app()->user->level, $userLevel))
-						echo '<li><a href="'.$link.'" title="'.$data[urlTitle].'"><span class="icons">'.$icons.'</span>'.$data[urlTitle].'</a></li>';
+						echo '<li><a href="'.$link.'" title="'.Yii::t('phrase', $data[urlTitle]).'"><span class="icons">'.$icons.'</span>'.Yii::t('phrase', $data[urlTitle]).'</a></li>';
 				} else {
 					$actionArray = explode(',', $data[urlRules][1]);
 					if($data[urlRules][0] == $controller && in_array($action, $actionArray) && in_array(OmmuSettings::getInfo('site_type'), $siteType) && in_array(Yii::app()->user->level, $userLevel))
-						echo '<li><a href="'.$link.'" title="'.$data[urlTitle].'"><span class="icons">'.$icons.'</span>'.$data[urlTitle].'</a></li>';
+						echo '<li><a href="'.$link.'" title="'.Yii::t('phrase', $data[urlTitle]).'"><span class="icons">'.$icons.'</span>'.Yii::t('phrase', $data[urlTitle]).'</a></li>';					
 				}
 			}
 			echo '</ul>';
