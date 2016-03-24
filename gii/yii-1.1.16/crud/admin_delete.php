@@ -35,11 +35,11 @@ echo "\t\$this->breadcrumbs=array(
 )); ?>\n"; ?>
 
 	<div class="dialog-content">
-		<?php echo "<?php echo Phrase::trans(172,0);?>";?>
+		<?php echo "<?php echo Yii::t('phrase', 'Are you sure you want to delete this item?');?>";?>
 	</div>
 	<div class="dialog-submit">
-		<?php echo "<?php echo CHtml::submitButton(Phrase::trans(173,0), array('onclick' => 'setEnableSave()')); ?>\n";?>
-		<?php echo "<?php echo CHtml::button(Phrase::trans(174,0), array('id'=>'closed')); ?>\n";?>
+		<?php echo "<?php echo CHtml::submitButton(Yii::t('phrase', 'Delete'), array('onclick' => 'setEnableSave()')); ?>\n";?>
+		<?php echo "<?php echo CHtml::button(Yii::t('phrase', 'Cancel'), array('id'=>'closed')); ?>\n";?>
 	</div>
 	
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>

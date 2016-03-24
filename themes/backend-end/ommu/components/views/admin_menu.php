@@ -4,7 +4,7 @@
 		$menuRender = 1;
 		$title = 'Submenu';
 		
-	} elseif($module == null && in_array($controller, array('page','module','globaltag','anotherdetail','author','authorcontact','translate'))) {
+	} elseif($module == null && in_array($controller, array('page','module','globaltag','anotherdetail','author','authorcontact','translate','menu','menucategory'))) {
 		$menuRender = 2;
 		$title = 'Submenu';
 		
@@ -149,12 +149,21 @@
 				<a href="<?php echo ($module == null && in_array($controller, array('author','authorcontact'))) ? 'javascript:void(0);' : Yii::app()->createUrl('author/manage');?>" title="<?php echo Yii::t('phrase', 'View Authors');?>"><?php echo Yii::t('phrase', 'View Authors');?></a>
 				<?php if($module == null && in_array($controller, array('author','authorcontact'))) {?>
 				<ul>
-					<li <?php echo $controller == 'author' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('author/manage');?>" title="Author"><span class="icons">C</span>Author</a></li>
-					<li <?php echo $controller == 'authorcontact' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('authorcontact/manage');?>" title="Author Contact"><span class="icons">C</span>Author Contact</a></li>
+					<li <?php echo $controller == 'author' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('author/manage');?>" title="<?php echo Yii::t('phrase', 'Author');?>"><span class="icons">C</span><?php echo Yii::t('phrase', 'Author');?></a></li>
+					<li <?php echo $controller == 'authorcontact' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('authorcontact/manage');?>" title="<?php echo Yii::t('phrase', 'Author Contact');?>"><span class="icons">C</span><?php echo Yii::t('phrase', 'Author Contact');?></a></li>
 				</ul>
 				<?php }?>
 			</li>
 		<?php }?>
+		<li <?php echo ($module == null && in_array($controller, array('menu','menucategory'))) ? 'class="submenu-show"' : '';?>>
+			<a href="<?php echo ($module == null && in_array($controller, array('menu','menucategory'))) ? 'javascript:void(0);' : Yii::app()->createUrl('menu/manage');?>" title="<?php echo Yii::t('phrase', 'View Menus');?>"><?php echo Yii::t('phrase', 'View Menus');?></a>
+			<?php if($module == null && in_array($controller, array('menu','menucategory'))) {?>
+			<ul>
+				<li <?php echo $controller == 'menu' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('menu/manage');?>" title="<?php echo Yii::t('phrase', 'Menu');?>"><span class="icons">C</span><?php echo Yii::t('phrase', 'Menu');?></a></li>
+				<li <?php echo $controller == 'menucategory' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('menucategory/manage');?>" title="<?php echo Yii::t('phrase', 'Menu Category');?>"><span class="icons">C</span><?php echo Yii::t('phrase', 'Menu Category');?></a></li>
+			</ul>
+			<?php }?>
+		</li>
 		<li <?php echo $controller == 'translate' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('translate/manage');?>" title="<?php echo Yii::t('phrase', 'Translate');?>"><?php echo Yii::t('phrase', 'Translate');?></a></li>
 
 	<?php } elseif($module != null && !in_array($module, array('users','report','support'))) {

@@ -35,14 +35,14 @@ echo "\t\$this->breadcrumbs=array(
 )); ?>\n"; ?>
 
 	<div class="dialog-content">
-		<?php echo "<?php echo \$model->publish == 1 ? Phrase::trans(282,0) : Phrase::trans(281,0)?>\n";?>
-		<?php echo "<?php //echo \$model->actived == 1 ? Phrase::trans(280,0) : Phrase::trans(279,0)?>\n";?>
-		<?php echo "<?php //echo \$model->enabled == 1 ? Phrase::trans(286,0) : Phrase::trans(285,0)?>\n";?>
-		<?php echo "<?php //echo \$model->status == 1 ? Phrase::trans(294,0) : Phrase::trans(293,0)?>\n";?>
+		<?php echo "<?php echo \$model->publish == 1 ? Yii::t('phrase', 'Are you sure you want to unpublish this item?') : Yii::t('phrase', 'Are you sure you want to publish this item?')?>\n";?>
+		<?php echo "<?php //echo \$model->actived == 1 ? Yii::t('phrase', 'Are you sure you want to deactived this item?') : Yii::t('phrase', 'Are you sure you want to actived this item?')?>\n";?>
+		<?php echo "<?php //echo \$model->enabled == 1 ? Yii::t('phrase', 'Are you sure you want to disabled this item?') : Yii::t('phrase', 'Are you sure you want to enabled this item?')?>\n";?>
+		<?php echo "<?php //echo \$model->status == 1 ? Yii::t('phrase', 'Are you sure you want to unresolved this item?') : Yii::t('phrase', 'Are you sure you want to resolved this item?')?>\n";?>
 	</div>
 	<div class="dialog-submit">
 		<?php echo "<?php echo CHtml::submitButton(\$title, array('onclick' => 'setEnableSave()')); ?>\n";?>
-		<?php echo "<?php echo CHtml::button(Phrase::trans(174,0), array('id'=>'closed')); ?>\n";?>
+		<?php echo "<?php echo CHtml::button(Yii::t('phrase', 'Cancel'), array('id'=>'closed')); ?>\n";?>
 	</div>
 	
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>

@@ -140,7 +140,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			),
 		));
 
-		$this->pageTitle = '<?php echo $label; ?>';
+		$this->pageTitle = Yii::t('phrase', '<?php echo $label; ?>');
 		$this->pageDescription = $setting->meta_description;
 		$this->pageMeta = $setting->meta_keyword;
 		$this->render('front_index',array(
@@ -166,7 +166,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 
 		$model=$this->loadModel($id);
 
-		$this->pageTitle = 'View <?php echo $label; ?>';
+		$this->pageTitle = Yii::t('phrase', 'View <?php echo $label; ?>');
 		$this->pageDescription = '';
 		$this->pageMeta = $setting->meta_keyword;
 		$this->render('front_view',array(
@@ -200,7 +200,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		}
 		$columns = $model->getGridColumn($columnTemp);
 
-		$this->pageTitle = '<?php echo $label; ?> Manage';
+		$this->pageTitle = Yii::t('phrase', '<?php echo $label; ?> Manage');
 		$this->pageDescription = '';
 		$this->pageMeta = '';
 		$this->render('admin_manage',array(
@@ -247,7 +247,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 							'type' => 5,
 							'get' => Yii::app()->controller->createUrl('manage'),
 							'id' => 'partial-<?php echo $this->class2id($this->modelClass); ?>',
-							'msg' => '<div class="errorSummary success"><strong><?php echo $this->modelClass; ?> success created.</strong></div>',
+							'msg' => '<div class="errorSummary success"><strong>'.Yii::t('phrase', '<?php echo $this->modelClass; ?> success created.').'</strong></div>',
 						));
 					} else {
 						print_r($model->getErrors());
@@ -259,14 +259,14 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 
 			if(isset($_GET['enablesave']) && $_GET['enablesave'] == 1) {
 				if($model->save()) {
-					Yii::app()->user->setFlash('success', '<?php echo $this->modelClass; ?> success created.');
+					Yii::app()->user->setFlash('success', Yii::t('phrase', '<?php echo $this->modelClass; ?> success created.'));
 					//$this->redirect(array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>));
 					$this->redirect(array('manage'));
 				}
 			}
 		}
 
-		$this->pageTitle = 'Create <?php echo $label; ?>';
+		$this->pageTitle = Yii::t('phrase', 'Create <?php echo $label; ?>');
 		$this->pageDescription = '';
 		$this->pageMeta = '';
 		$this->render('admin_add',array(
@@ -313,7 +313,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 							'type' => 5,
 							'get' => Yii::app()->controller->createUrl('manage'),
 							'id' => 'partial-<?php echo $this->class2id($this->modelClass); ?>',
-							'msg' => '<div class="errorSummary success"><strong><?php echo $this->modelClass; ?> success updated.</strong></div>',
+							'msg' => '<div class="errorSummary success"><strong>'.Yii::t('phrase', '<?php echo $this->modelClass; ?> success updated.').'</strong></div>',
 						));
 					} else {
 						print_r($model->getErrors());
@@ -325,14 +325,14 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 
 			if(isset($_GET['enablesave']) && $_GET['enablesave'] == 1) {
 				if($model->save()) {
-					Yii::app()->user->setFlash('success', '<?php echo $this->modelClass; ?> success updated.');
+					Yii::app()->user->setFlash('success', Yii::t('phrase', '<?php echo $this->modelClass; ?> success updated.'));
 					//$this->redirect(array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>));
 					$this->redirect(array('manage'));
 				}
 			}
 		}
 
-		$this->pageTitle = 'Update <?php echo $label; ?>';
+		$this->pageTitle = Yii::t('phrase', 'Update <?php echo $label; ?>');
 		$this->pageDescription = '';
 		$this->pageMeta = '';
 		$this->render('admin_edit',array(
@@ -393,7 +393,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 						'type' => 5,
 						'get' => Yii::app()->controller->createUrl('manage'),
 						'id' => 'partial-<?php echo $this->class2id($this->modelClass); ?>',
-						'msg' => '<div class="errorSummary success"><strong><?php echo $this->modelClass; ?> success deleted.</strong></div>',
+						'msg' => '<div class="errorSummary success"><strong>'.Yii::t('phrase', '<?php echo $this->modelClass; ?> success deleted.').'</strong></div>',
 					));
 				}
 			}
@@ -403,7 +403,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			$this->dialogGroundUrl = Yii::app()->controller->createUrl('manage');
 			$this->dialogWidth = 350;
 
-			$this->pageTitle = '<?php echo $this->modelClass; ?> Delete.';
+			$this->pageTitle = Yii::t('phrase', '<?php echo $this->modelClass; ?> Delete.');
 			$this->pageDescription = '';
 			$this->pageMeta = '';
 			$this->render('admin_delete');
@@ -423,16 +423,16 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		//if($model->actived == 1) {
 		//if($model->enabled == 1) {
 		//if($model->status == 1) {
-			$title = Phrase::trans(276,0);
-			//$title = Phrase::trans(278,0);
-			//$title = Phrase::trans(284,0);
-			//$title = Phrase::trans(292,0);
+			$title = Yii::t('phrase', 'Unpublish');
+			//$title = Yii::t('phrase', 'Deactived');
+			//$title = Yii::t('phrase', 'Disabled');
+			//$title = Yii::t('phrase', 'Unresolved');
 			$replace = 0;
 		} else {
-			$title = Phrase::trans(275,0);
-			//$title = Phrase::trans(277,0);
-			//$title = Phrase::trans(283,0);
-			//$title = Phrase::trans(291,0);
+			$title = Yii::t('phrase', 'Publish');
+			//$title = Yii::t('phrase', 'Actived');
+			//$title = Yii::t('phrase', 'Enabled');
+			//$title = Yii::t('phrase', 'Resolved');
 			$replace = 1;
 		}
 
@@ -450,7 +450,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 						'type' => 5,
 						'get' => Yii::app()->controller->createUrl('manage'),
 						'id' => 'partial-<?php echo $this->class2id($this->modelClass); ?>',
-						'msg' => '<div class="errorSummary success"><strong><?php echo $this->modelClass; ?> success published.</strong></div>',
+						'msg' => '<div class="errorSummary success"><strong>'.Yii::t('phrase', '<?php echo $this->modelClass; ?> success updated.').'</strong></div>',
 					));
 				}
 			}
@@ -491,7 +491,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 						'type' => 5,
 						'get' => Yii::app()->controller->createUrl('manage'),
 						'id' => 'partial-<?php echo $this->class2id($this->modelClass); ?>',
-						'msg' => '<div class="errorSummary success"><strong><?php echo $this->modelClass; ?> success updated.</strong></div>',
+						'msg' => '<div class="errorSummary success"><strong>'.Yii::t('phrase', '<?php echo $this->modelClass; ?> success updated.').'</strong></div>',
 					));
 				}
 			}
@@ -501,7 +501,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			$this->dialogGroundUrl = Yii::app()->controller->createUrl('manage');
 			$this->dialogWidth = 350;
 
-			$this->pageTitle = Phrase::trans(338,0);
+			$this->pageTitle = Yii::t('phrase', 'Headline');
 			$this->pageDescription = '';
 			$this->pageMeta = '';
 			$this->render('admin_headline');
@@ -517,7 +517,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	{
 		$model = <?php echo $this->modelClass; ?>::model()->findByPk($id);
 		if($model===null)
-			throw new CHttpException(404, Phrase::trans(193,0));
+			throw new CHttpException(404, Yii::t('phrase', 'The requested page does not exist.'));
 		return $model;
 	}
 

@@ -94,7 +94,7 @@ foreach($this->tableSchema->columns as $column)
 	<div class="submit clearfix">
 		<label>&nbsp;</label>
 		<div class="desc">
-			<?php echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? Phrase::trans(1,0) : Phrase::trans(2,0), array('onclick' => 'setEnableSave()')); ?>\n"; ?>
+			<?php echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? Yii::t('phrase', 'Create') : Yii::t('phrase', 'Save'), array('onclick' => 'setEnableSave()')); ?>\n"; ?>
 		</div>
 	</div>
 
@@ -103,8 +103,8 @@ foreach($this->tableSchema->columns as $column)
 <?php echo "<div class=\"dialog-content\">\n"; ?>
 <?php echo "</div>\n"; ?>
 <?php echo "<div class=\"dialog-submit\">\n"; ?>
-<?php echo "\t<?php echo CHtml::submitButton(\$model->isNewRecord ? Phrase::trans(1,0) : Phrase::trans(2,0) ,array('onclick' => 'setEnableSave()')); ?>\n"; ?>
-<?php echo "\t<?php echo CHtml::button(Phrase::trans(4,0), array('id'=>'closed')); ?>\n"; ?>
+<?php echo "\t<?php echo CHtml::submitButton(\$model->isNewRecord ? Yii::t('phrase', 'Create') : Yii::t('phrase', 'Save') ,array('onclick' => 'setEnableSave()')); ?>\n"; ?>
+<?php echo "\t<?php echo CHtml::button(Yii::t('phrase', 'Cancel'), array('id'=>'closed')); ?>\n"; ?>
 <?php echo "</div>\n"; ?>
 <?php echo "*/?>\n"; ?>
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>

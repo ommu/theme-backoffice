@@ -95,6 +95,6 @@ foreach($this->tableSchema->columns as $name=>$column)
 echo "<div class=\"dialog-content\">\n";
 echo "</div>\n";
 echo "<div class=\"dialog-submit\">\n";
-echo "\t<?php echo CHtml::button(Phrase::trans(4,0), array('id'=>'closed')); ?>\n";
+echo "\t<?php echo CHtml::button(Yii::t('phrase', 'Close'), array('id'=>'closed')); ?>\n";
 echo "</div>\n";
 ?>

@@ -38,7 +38,7 @@
 
 <?php endforeach; ?>
 		<li class="submit">
-			<?php echo "<?php echo CHtml::submitButton(Phrase::trans(3,0)); ?>\n"; ?>
+			<?php echo "<?php echo CHtml::submitButton(Yii::t('phrase', 'Search')); ?>\n"; ?>
 		</li>
 	</ul>
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>
