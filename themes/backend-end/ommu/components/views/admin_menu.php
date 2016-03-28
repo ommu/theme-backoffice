@@ -24,7 +24,7 @@
 		<li <?php echo $menuRender == 1 ? 'class="active"' : ''; ?>><a class="dashboard" href="<?php echo Yii::app()->createUrl('admin/index');?>" title="<?php echo Yii::t('phrase', 'Dashboard');?>"><?php echo Yii::t('phrase', 'Dashboard');?></a></li>
 		<li <?php echo $menuRender == 2 ? 'class="active"' : ''; ?>><a class="content" href="<?php echo Yii::app()->createUrl('page/manage');?>" title="<?php echo Yii::t('phrase', 'Content');?>"><?php echo Yii::t('phrase', 'Content');?></a></li>
 		<?php 
-			$plugin = OmmuPlugins::getPlugin(1);
+			$plugin = OmmuPlugins::getPlugin(1, null, 'data');
 			if($plugin != null) {
 				foreach($plugin as $key => $val) {
 					$menu = Utility::getPluginMenu($val->folder);
@@ -56,7 +56,7 @@
 
 						$url = Yii::app()->createUrl($val->folder.'/'.$menu[0][urlPath][url], $arrAttrParams);
 						//$titleApps = $val->name;
-						$titleApps = Phrase::trans($val->code, 1) != null ? Phrase::trans($val->code, 1) : $val->name;
+						$titleApps = $val->name;
 						if($val->folder == $module) {
 							$class = 'class="active"';
 							$title = $val->name;
@@ -85,7 +85,7 @@
 	<?php if($menuRender == 1) { //Begin.Dashboard ?>
 		<li <?php echo $currentAction == 'admin/dashboard' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('admin/dashboard');?>" title="<?php echo Yii::t('phrase', 'Summary');?>"><?php echo Yii::t('phrase', 'Summary');?></a></li>
 		<?php 
-		$core = OmmuPlugins::getPlugin(2);
+		$core = OmmuPlugins::getPlugin(2, null, 'data');
 		if($core != null) {
 			foreach($core as $key => $val) {
 				$menu = Utility::getPluginMenu($val->folder);
