@@ -28,6 +28,8 @@ return $names;
 <?php echo "<?php\n"; ?>
 /**
  * <?php echo $modelClass."\n"; ?>
+ * version: 0.0.1
+ *
  * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
  * @copyright Copyright (c) 2016 Ommu Platform (ommu.co)
  * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>

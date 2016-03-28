@@ -60,9 +60,8 @@
 						if($val->folder == $module) {
 							$class = 'class="active"';
 							$title = $val->name;
-						} else {
+						} else
 							$class = '';
-						}
 
 						$item = '<li '.$class.'>';
 						$item .= '<a href="'.$url.'" title="'.Yii::t('phrase', $titleApps).'">'.Yii::t('phrase', $titleApps).'</a>';						
