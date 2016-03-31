@@ -254,7 +254,7 @@
 										}
 									}
 								}
-								$url = $val[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$data[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
+								$url = $data[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$data[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
 								echo '<li '.$subLiClass.'><a href="'.$url.'" title="'.Yii::t('phrase', $data[urlTitle]).'"><span class="icons">'.$subIcons.'</span>'.Yii::t('phrase', $data[urlTitle]).'</a></li>';
 							}								
 						}
@@ -359,7 +359,7 @@
 										}
 									}
 								}
-								$url = $val[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$data[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
+								$url = $data[urlPath][url] != null ? Yii::app()->createUrl($module.'/'.$data[urlPath][url], $arrAttrParams) : 'javascript:void(0)';
 								echo '<li '.$subLiClass.'><a href="'.$url.'" title="'.Yii::t('phrase', $data[urlTitle]).'"><span class="icons">'.$subIcons.'</span>'.Yii::t('phrase', $data[urlTitle]).'</a></li>';
 							}
 						}
