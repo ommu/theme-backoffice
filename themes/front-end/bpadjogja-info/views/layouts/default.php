@@ -255,7 +255,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 						<li><a href="<?php echo Yii::app()->createUrl('article/regulation/site/index', array('category'=>13,'t'=>Utility::getUrlTitle(Phrase::trans(1553, 2).' '.Phrase::trans(1555, 2))));?>" title="<?php echo Phrase::trans(1553, 2).' '.Phrase::trans(1555, 2);?>"><?php echo Phrase::trans(1553, 2).' '.Phrase::trans(1555, 2);?></a></li>
 						<li><a href="<?php echo Yii::app()->createUrl('article/regulation/site/index', array('category'=>14,'t'=>Utility::getUrlTitle(Phrase::trans(1553, 2).' '.Phrase::trans(1557, 2))));?>" title="<?php echo Phrase::trans(1553, 2).' '.Phrase::trans(1557, 2);?>"><?php echo Phrase::trans(1553, 2).' '.Phrase::trans(1557, 2);?></a></li>
 						<?php /*<li><a href="<?php echo Yii::app()->request->baseUrl;?>/khasanaharsip" title="Pencarian Khasanah Arsip">Pencarian Khasanah Arsip</a></li>*/?>
-						<li><a target="_blank" href="http://118.82.10.116/opac/" title="Katalog Buku BPAD DIY">Katalog Buku BPAD DIY</a></li>
+						<li><a target="_blank" href="http://103.255.15.77" title="Katalog Buku BPAD DIY">Katalog Buku BPAD DIY</a></li>
 					</ul>
 				</div>
 				<div class="clear"></div>
