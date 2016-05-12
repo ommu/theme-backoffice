@@ -320,8 +320,8 @@ foreach($columns as $name=>$column)
 			echo "\t\t\t\t\t\t'class' => 'center',\n";
 			echo "\t\t\t\t\t),\n";
 			echo "\t\t\t\t\t'filter'=>array(\n";
-			echo "\t\t\t\t\t\t1=>Phrase::trans(588,0),\n";
-			echo "\t\t\t\t\t\t0=>Phrase::trans(589,0),\n";
+			echo "\t\t\t\t\t\t1=>Yii::t('phrase', 'Yes'),\n";
+			echo "\t\t\t\t\t\t0=>Yii::t('phrase', 'No'),\n";
 			echo "\t\t\t\t\t),\n";
 			echo "\t\t\t\t\t'type' => 'raw',\n";
 			echo "\t\t\t\t);\n";
