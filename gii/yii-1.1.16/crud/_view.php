@@ -11,8 +11,8 @@
  * @var $data <?php echo $this->getModelClass()."\n"; ?>
  * version: 0.0.1
  *
- * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
- * @copyright Copyright (c) 2016 Ommu Platform (ommu.co)
+ * @author Putra Sudaryanto <putra@sudaryanto.id>
+ * @copyright Copyright (c) <?php echo date('Y'); ?> Ommu Platform (ommu.co)
  * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
  * @link http://company.ommu.co
  * @contect (+62)856-299-4114

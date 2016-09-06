@@ -30,7 +30,7 @@ return $names;
  * <?php echo $modelClass."\n"; ?>
  * version: 0.0.1
  *
- * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
+ * @author Putra Sudaryanto <putra@sudaryanto.id>
  * @copyright Copyright (c) 2016 Ommu Platform (ommu.co)
  * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
  * @link http://company.ommu.co
