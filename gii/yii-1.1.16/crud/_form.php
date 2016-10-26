@@ -60,7 +60,7 @@ foreach($this->tableSchema->columns as $column)
 		<?php echo "<?php echo ".$this->generateActiveLabel($this->modelClass,$column)."; ?>\n"; ?>
 		<div class="desc">
 			<?php echo "<?php\n"; ?>
-			<?php echo "!\$model->isNewRecord ? (\$model->{$column->name} != '0000-00-00' ? \$model->{$column->name} = date('d-m-Y', strtotime(\$model->{$column->name})) : '') : '';\n"; ?>
+			<?php echo "\$model->{$column->name} = !\$model->isNewRecord ? (!in_array(\$model->{$column->name}, array('0000-00-00','1970-01-01')) ? date('d-m-Y', strtotime(\$model->{$column->name})) : '') : '';\n"; ?>
 			<?php echo "//echo \$form->textField(\$model,'{$column->name}');\n"; ?>
 			<?php echo "\$this->widget('zii.widgets.jui.CJuiDatePicker',array(\n"; ?>
 				<?php echo "'model'=>\$model,\n"; ?>

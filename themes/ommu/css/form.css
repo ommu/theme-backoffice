@@ -540,7 +540,9 @@ fieldset div div.desc span.small-px:first-child {
 	padding: 0 0 0 0;
 }
 fieldset div div.desc span.small-px:last-child,
-fieldset div div.desc span.desc:last-child {
+fieldset div div.desc span.small-px:first-child:last-child,
+fieldset div div.desc span.desc:last-child,
+fieldset div div.desc span.desc:first-child:last-child {
 	border-top: none;
 	margin: 7px 0 0 0;
 	padding: 0 0 0 0;
@@ -667,7 +669,6 @@ fieldset.clearfix div.right div.clearfix div.desc select {
 	margin: 0 3px 0 5px;
 }
 fieldset.clearfix div.right div.clearfix div.desc input[type="file"],
-fieldset.clearfix div.right div.clearfix div.desc input:first-child,
 fieldset.clearfix div.right div.clearfix div.desc select:first-child {
 	margin: 0 3px 0 0;
 }
