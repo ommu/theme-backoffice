@@ -31,9 +31,9 @@ return $names;
  * version: 0.0.1
  *
  * @author Putra Sudaryanto <putra@sudaryanto.id>
- * @copyright Copyright (c) 2016 Ommu Platform (ommu.co)
+ * @copyright Copyright (c) <?php echo date('Y'); ?> Ommu Platform (opensource.ommu.co)
  * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
- * @link http://company.ommu.co
+ * @link http://opensource.ommu.co
  * @contact (+62)856-299-4114
  *
  * This is the template for generating the model class of a specified table.
