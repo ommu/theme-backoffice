@@ -24,7 +24,6 @@ function setRelationName($names) {
 }
 
 ?>
-
 <?php echo "<?php\n"; ?>
 /**
  * <?php echo $modelClass."\n"; ?>
