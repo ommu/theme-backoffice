@@ -1,11 +1,13 @@
 <?php echo "<?php\n"; ?>
 /**
  * <?php echo $this->moduleClass; ?>
+ * version: 0.0.1
  *
  * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
- * @copyright Copyright (c) 2015 Ommu Platform (ommu.co)
- * @link https://github.com/oMMu/Ommu-Photo-Albums
- * @contect (+62)856-299-4114
+ * @copyright Copyright (c) <?php echo date('Y'); ?> Ommu Platform (opensource.ommu.co)
+ * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
+ * @link http://opensource.ommu.co
+ * @contact (+62)856-299-4114
  *
  *----------------------------------------------------------------------------------------------------------
  */
@@ -13,6 +15,11 @@
 class <?php echo $this->moduleClass; ?> extends CWebModule
 {
 	public $defaultController = 'site';
+	
+	// getAssetsUrl()
+	//	return the URL for this module's assets, performing the publish operation
+	//	the first time, and caching the result for subsequent use.
+	private $_assetsUrl;
 
 	public function init() 
 	{
@@ -24,6 +31,14 @@ class <?php echo $this->moduleClass; ?> extends CWebModule
 			'<?php echo $this->moduleID; ?>.models.*',
 			'<?php echo $this->moduleID; ?>.components.*',
 		));
+	}
+ 
+	public function getAssetsUrl()
+	{
+		if ($this->_assetsUrl === null)
+			$this->_assetsUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias(''<?php echo $this->moduleID; ?>.assets'));
+		
+		return $this->_assetsUrl;
 	}
 
 	public function beforeControllerAction($controller, $action)
