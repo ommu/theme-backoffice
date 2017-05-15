@@ -3,7 +3,7 @@
  * <?php echo $this->moduleClass; ?>
  * version: 0.0.1
  *
- * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
+ * @author Putra Sudaryanto <putra@sudaryanto.id>
  * @copyright Copyright (c) <?php echo date('Y'); ?> Ommu Platform (opensource.ommu.co)
  * @created date <?php echo date('j F Y, H:i')." WIB\n"; ?>
  * @link http://opensource.ommu.co
