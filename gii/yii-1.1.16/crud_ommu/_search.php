@@ -34,7 +34,8 @@
 ?>
 		<li>
 			<?php echo "<?php echo \$model->getAttributeLabel('{$column->name}'); ?><br/>\n"; ?>
-			<?php echo "<?php echo ".$this->generateActiveField($this->modelClass,$column)."; ?>\n"; ?>
+			<?php echo "<?php echo \$form->textField(\$model,'{$column->name}'); ?><br/>\n"; ?>
+			<?php /* echo "<?php echo ".$this->generateActiveField($this->modelClass,$column)."; ?>\n"; */ ?>
 		</li>
 
 <?php endforeach; ?>

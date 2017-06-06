@@ -97,12 +97,16 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 				'actions'=>array(),
 				'users'=>array('@'),
 				'expression'=>'isset(Yii::app()->user->level)',
-				//'expression'=>'isset(Yii::app()->user->level) && (Yii::app()->user->level != 1)',
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('manage','add','edit','runaction','delete','publish','headline'),
 				'users'=>array('@'),
 				'expression'=>'isset(Yii::app()->user->level) && (Yii::app()->user->level == 1)',
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('manage','add','edit','runaction','delete','publish','headline'),
+				'users'=>array('@'),
+				'expression'=>'isset(Yii::app()->user->level) && (in_array(Yii::app()->user->level, array(1,2)))',
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array(),
@@ -387,15 +391,13 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		
 		if(Yii::app()->request->isPostRequest) {
 			// we only allow deletion via POST request
-			if(isset($id)) {
-				if($model->delete()) {
-					echo CJSON::encode(array(
-						'type' => 5,
-						'get' => Yii::app()->controller->createUrl('manage'),
-						'id' => 'partial-<?php echo $this->class2id($this->modelClass); ?>',
-						'msg' => '<div class="errorSummary success"><strong>'.Yii::t('phrase', '<?php echo $this->modelClass; ?> success deleted.').'</strong></div>',
-					));
-				}
+			if($model->delete()) {
+				echo CJSON::encode(array(
+					'type' => 5,
+					'get' => Yii::app()->controller->createUrl('manage'),
+					'id' => 'partial-<?php echo $this->class2id($this->modelClass); ?>',
+					'msg' => '<div class="errorSummary success"><strong>'.Yii::t('phrase', '<?php echo $this->modelClass; ?> success deleted.').'</strong></div>',
+				));
 			}
 
 		} else {
