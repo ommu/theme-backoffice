@@ -27,7 +27,8 @@
 			$plugin = OmmuPlugins::getPlugin(1, null, 'data');
 			if($plugin != null) {
 				foreach($plugin as $key => $val) {
-					$menu = Utility::getModuleMenu($val->folder);
+					$parent = $val->parent_id ? $val->parent->folder : null;
+					$menu = Utility::getModuleMenu($val->folder, $parent);
 					if($menu != null) {
 						//attr url					
 						$arrAttrParams = array();
@@ -54,10 +55,11 @@
 							}
 						}
 
-						$url = Yii::app()->createUrl($val->folder.'/'.$menu[0]['urlPath']['url'], $arrAttrParams);
+						$folder = $val->parent_id ? $val->parent->folder : $val->folder;
+						$url = Yii::app()->createUrl($folder.'/'.$menu[0]['urlPath']['url'], $arrAttrParams);
 						//$titleApps = $val->name;
 						$titleApps = $val->name;
-						if($val->folder == $module) {
+						if($folder == $module) {
 							$class = 'class="active"';
 							$title = $val->name;
 						} else

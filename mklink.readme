@@ -1,0 +1,10 @@
+=======
+mklink /J "D:\htdocs\_project_theme_back-ommu\components" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\components" 
+mklink /J "D:\htdocs\_project_theme_back-ommu\css" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\css" 
+mklink /J "D:\htdocs\_project_theme_back-ommu\fonts" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\fonts" 
+mklink /J "D:\htdocs\_project_theme_back-ommu\images" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\images" 
+mklink /J "D:\htdocs\_project_theme_back-ommu\js" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\js" 
+mklink /J "D:\htdocs\_project_theme_back-ommu\views" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\views" 
+mklink /H "D:\htdocs\_project_theme_back-ommu\ommu.yaml" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\ommu.yaml" 
+mklink /H "D:\htdocs\_project_theme_back-ommu\ommu_platform.png" "D:\htdocs\_project_ommu_bootstrap\themes\ommu\ommu_platform.png" 
+
