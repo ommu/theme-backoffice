@@ -4,7 +4,7 @@
 		$menuRender = 1;
 		$title = 'Submenu';
 		
-	} elseif($module == null && in_array($controller, array('page','module','globaltag','translate','menu'))) {
+	} elseif($module == null && in_array($controller, array('page','view','history','module','globaltag','translate','menu'))) {
 		$menuRender = 2;
 		$title = 'Submenu';
 		
@@ -151,7 +151,7 @@
 		<li><a href="<?php echo Yii::app()->createUrl('users/o/admin/password')?>" title="<?php echo Yii::t('phrase', 'Change Password').': '.Yii::app()->user->displayname;?>"><?php echo Yii::t('phrase', 'Change Password');?></a></li>
 
 	<?php } elseif($menuRender == 2) { //Begin.Content ?>
-		<li <?php echo $controller == 'page' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('page/manage');?>" title="<?php echo Yii::t('phrase', 'Pages');?>"><?php echo Yii::t('phrase', 'Pages');?></a></li>
+		<li <?php echo in_array($controller, array('page','view','history')) ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('page/manage');?>" title="<?php echo Yii::t('phrase', 'Pages');?>"><?php echo Yii::t('phrase', 'Pages');?></a></li>
 		<?php if(Yii::app()->user->level == 1) {?>
 			<li <?php echo $controller == 'module' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('module/manage');?>" title="<?php echo Yii::t('phrase', 'Modules');?>"><?php echo Yii::t('phrase', 'Modules');?></a></li>
 		<?php }?>
