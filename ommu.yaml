@@ -1,1 +1,10 @@
-/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/ommu.yaml
+group_page		: admin
+name			: Ommu Backend Default
+folder			: ommu
+layout			: admin_default
+thumbnail		: ommu_platform.png
+author			: Putra Sudaryanto
+
+controller	:
+
+settings	:
