@@ -1,10 +1,10 @@
 =======
-hln "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/components" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/components"
-hln "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/css" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/css"
-hln "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/fonts" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/fonts"
-hln "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/images" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/images"
-hln "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/js" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/js"
-hln "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/views" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/views"
-ln -fs "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/ommu.yaml" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/ommu.yaml"
-ln -fs "/Users/putrasudaryanto/htdocs/_project_ommu_bootstrap/themes/ommu/ommu_platform.png" "/Users/putrasudaryanto/htdocs/_project_theme_back-ommu/ommu_platform.png"
+hln "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/components" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/components"
+hln "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/css" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/css"
+hln "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/fonts" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/fonts"
+hln "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/images" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/images"
+hln "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/js" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/js"
+hln "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/views" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/views"
+ln -f "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/ommu.yaml" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/ommu.yaml"
+ln -f "/Users/putrasudaryanto/htdocs/project_ommu_module/gii_template/themes/ommu/ommu_platform.png" "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice/ommu_platform.png"
 
