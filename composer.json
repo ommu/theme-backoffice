@@ -1,0 +1,36 @@
+{
+	"name": "ommu/ommu",
+	"description": "Ommu backoffice theme for Ommu Platform",
+	"keywords": [
+		"theme",
+		"backoffice",
+		"ommu",
+		"platform",
+		"ommu platform"
+	],
+	"homepage": "https://github.com/OmmuThemes/ommu",
+	"type": "ommu-theme",
+	"license": "Apache-2.0",
+	"support": {
+		"issues": "https://github.com/OmmuThemes/ommu/issues",
+		"wiki": "https://github.com/OmmuThemes/ommu/wiki",
+		"source": "https://github.com/OmmuThemes/ommu"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/OmmuThemes/ommu.git"
+	},
+	"authors": [
+		{
+			"name": "Putra Sudaryanto",
+			"email": "putra@sudaryanto.id",
+			"homepage": "https://putra.sudaryanto.id",
+			"role": "Creator"
+		}
+	],
+	"require": {
+		"php": ">=5.3.2",
+		"oomphinc/composer-installers-extender": "^1.0",
+		"yiisoft/yii": "1.1.*"
+	}
+}
