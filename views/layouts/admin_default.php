@@ -30,7 +30,7 @@
 			<?php //begin.Content Menu ?>
 			<div class="contentmenu clearfix">
 				<?php $this->widget('MenuContent');?>
-				<?php $this->widget('application.components.system.CMenu', array(
+				<?php $this->widget('application.libraries.core.components.system.CMenu', array(
 					'items'=>$this->menu,
 					'htmlOptions'=>array('class'=>'gridmenu clearfix'),
 				)); ?>
