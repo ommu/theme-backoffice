@@ -61,7 +61,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 				'description' => $description,
 				'keywords' => $keywords,
 				'address' => $urlAddress,
-				'dialogWidth' => $dialogWidth,			
+				'dialogWidth' => $dialogWidth,
 			);
 			$return['page'] = $page;
 			$return['dialog'] = $dialog;

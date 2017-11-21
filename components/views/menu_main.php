@@ -167,6 +167,7 @@
 			$menu = Utility::getModuleMenu($plugin, $module);
 		else
 			$menu = Utility::getModuleMenu($module);
+
 		if($menu != null) {
 			foreach($menu as $key => $val) {
 				$siteType = explode(',', $val['urlRules']['siteType']);
@@ -190,7 +191,7 @@
 						if(count($arrAttr) > 0) {
 							foreach($arrAttr as $row) {
 								$part = explode('=', $row);
-								if(strpos($part[1], '$_GET') !== false) {								
+								if(strpos($part[1], '$_GET') !== false) {
 									$list = explode('*', $part[1]);
 									if(count($list) == 2)
 										$arrAttrParams[$part[0]] = $_GET[$list[1]];
