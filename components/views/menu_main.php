@@ -181,10 +181,10 @@
 							$aClass = $controller == $urlArray[0].'/'.$urlArray[1] ? 'class="active"' : '';
 						else
 							$aClass = $controller == $urlArray[0] ? 'class="active"' : '';
-					}					
+					}
 					$icons = $val['urlPath']['icon'] != null && $val['urlPath']['icon'] != '-' ? $val['urlPath']['icon'] : 'C';
 
-					//attr url					
+					//attr url
 					$arrAttrParams = array();
 					if($val['urlPath']['attr'] != null && $val['urlPath']['attr'] != '-') {
 						$arrAttr = explode(',', $val['urlPath']['attr']);
@@ -211,7 +211,7 @@
 					if(isset($plugin))
 						$arrAttrParams['plugin'] = $plugin;
 						
-					$submenu = $val[submenu];
+					$submenu = $val['submenu'];
 					$class = $submenu != null ? 'class="submenu-show"' : '';
 					$url = $val['urlPath']['url'] != null && $val['urlPath']['url'] != '-' ? Yii::app()->createUrl($module.'/'.$val['urlPath']['url'], $arrAttrParams) : 'javascript:void(0)';
 					

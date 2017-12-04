@@ -20,7 +20,7 @@ class MenuAccount extends CWidget
 			'select' => 'photos, lastlogin_date',
 		));
 		$this->render('menu_account', array(
-			'model'=>$model,	
+			'model'=>$model,
 		));	
 	}
 }
