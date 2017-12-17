@@ -731,6 +731,9 @@ div.body .content div[id^="partial"]:last-child {
 	display: none;
 	margin: 0 0 15px 0;
 }
+.body div.content .search-form {
+	display: none;
+}
 .body div.content .search-form ul,
 .body div.content .grid-option ul {
 	display: block;
