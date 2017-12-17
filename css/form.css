@@ -386,9 +386,58 @@ form h3[name="unpublish"] {
 
 /* Fieldset Style */
 fieldset {
+	padding: 10px 15px;
 	border-top: 1px solid #fff;
 	background: #fff;
 }
+.form-group {
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #e6e6e6;
+}
+.form-group p {
+	margin-top: 10px;
+}
+.form-group p:first-child {
+	margin-top: 0;
+}
+.form-group .form-control,
+.form-group span[id] {
+	margin-bottom: 7px
+}
+.form-group span[id] {
+	display: block;
+}
+.form-group .small-px,
+.form-group label span:not([class]) {
+	display: block;
+	color: #808080;
+}
+.form-group .small-px:first-child {
+	margin-bottom: 7px;
+}
+.form-group .small-px:last-child {
+	margin-top: 0;
+}
+.form-group label span:not([class]) {
+	padding-top: 10px;
+}
+label.control-label,
+label.col-form-label {
+	font-weight: bold;
+}
+.form-group span label {
+	font-weight: normal;
+	float: none;
+	width: auto !important;
+}
+.form-group span .form-control {
+	display: inline-block;
+}
+.form-group span input[type="radio"].form-control,
+.form-group span input[type="checkbox"].form-control {
+	margin: 0 5px 0 0;
+}
+
 fieldset.overflow {
 	overflow: hidden;
 	height: 0px;
@@ -398,10 +447,18 @@ fieldset div.clearfix {
 	border-bottom: 1px dotted #e6e6e6;
 }
 fieldset div.intro {
-	padding: 15px 20px;
+	padding: 15px 0;
 }
 fieldset div.clearfix {
-	padding: 10px 20px;
+	padding: 15px 0;
+}
+fieldset div.intro:first-child,
+fieldset div.clearfix:first-child {
+	padding-top: 5px;
+}
+fieldset div.intro:last-child,
+fieldset div.clearfix:last-child {
+	padding-bottom: 5px;
 }
 fieldset div.clearfix:last-child,
 fieldset div#ajax-message {

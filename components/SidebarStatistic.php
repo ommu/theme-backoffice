@@ -20,7 +20,7 @@ class SidebarStatistic extends CWidget
 		$currentModuleAction = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
 		
 		//import
-		Yii::import('application.extensions.gapi-google-analytics.OGapi');
+		Yii::import('ext.gapi-google-analytics-php-interface.OGapi');
 		
 		//get information
 		$model = OmmuSettings::model()->findByPk(1,array(

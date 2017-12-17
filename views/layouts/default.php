@@ -73,6 +73,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 
 	} else {
 		$cs = Yii::app()->getClientScript();
+		$cs->registerCssFile(Yii::app()->theme->baseUrl.'/css/bootstrap.min.css');
 		$cs->registerCssFile(Yii::app()->theme->baseUrl.'/css/general.css');
 		$cs->registerCssFile(Yii::app()->theme->baseUrl.'/css/form.css');
 		$cs->registerCssFile(Yii::app()->theme->baseUrl.'/css/typography.css');
