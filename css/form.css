@@ -386,13 +386,28 @@ form h3[name="unpublish"] {
 
 /* Fieldset Style */
 fieldset {
-	padding: 10px 15px;
+	padding: 10px 0;
 	border-top: 1px solid #fff;
 	background: #fff;
 }
+.dialog fieldset,
+.notifier fieldset {
+	padding: 0;
+}
 .form-group {
+	margin: 10px 0 15px 0;
 	padding-bottom: 10px;
 	border-bottom: 1px dotted #e6e6e6;
+}
+.form-group.submit,
+.dialog fieldset .form-group:last-child,
+.notifier fieldset .form-group:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+.dialog fieldset .form-group:last-child,
+.notifier fieldset .form-group:last-child {
+	margin-bottom: 0;
 }
 .form-group p {
 	margin-top: 10px;
@@ -412,7 +427,7 @@ fieldset {
 	display: block;
 	color: #808080;
 }
-.form-group .small-px:first-child {
+.form-group .small-px {
 	margin-bottom: 7px;
 }
 .form-group .small-px:last-child {
@@ -420,6 +435,9 @@ fieldset {
 }
 .form-group label span:not([class]) {
 	padding-top: 10px;
+}
+.form-group label span:not([class]):first-child {
+	padding-top: 0;
 }
 label.control-label,
 label.col-form-label {
@@ -437,6 +455,12 @@ label.col-form-label {
 .form-group span input[type="checkbox"].form-control {
 	margin: 0 5px 0 0;
 }
+.form-group input.form-control[type=file] {
+	border: none;
+	padding: 0;
+}
+
+
 
 fieldset.overflow {
 	overflow: hidden;
@@ -444,13 +468,8 @@ fieldset.overflow {
 }
 fieldset div.intro,
 fieldset div.clearfix {
+	padding: 15px 20px;
 	border-bottom: 1px dotted #e6e6e6;
-}
-fieldset div.intro {
-	padding: 15px 0;
-}
-fieldset div.clearfix {
-	padding: 15px 0;
 }
 fieldset div.intro:first-child,
 fieldset div.clearfix:first-child {
@@ -929,13 +948,13 @@ div.ui-datepicker * {
 /* Resolution 1280 */
 @media only screen and (max-width:1280px) {
 	/* Form */
-	.body fieldset div label,
+	.body fieldset div.clearfix label,
 	fieldset.clearfix div.right div.clearfix label,
 	fieldset.clearfix.balance div.left div.clearfix label,
 	fieldset.clearfix.balance div.right div.clearfix label {
 		width: 40%;
 	}
-	.body fieldset div div.desc,
+	.body fieldset div.clearfix div.desc,
 	fieldset.clearfix div.right div.clearfix div.desc,
 	fieldset.clearfix.balance div.left div.clearfix div.desc,
 	fieldset.clearfix.balance div.right div.clearfix div.desc,
@@ -947,13 +966,13 @@ div.ui-datepicker * {
 /* Resolution 1024 */
 @media only screen and (max-width:1024px) {
 	/* Form */
-	.body fieldset div label,
+	.body fieldset div.clearfix label,
 	fieldset.clearfix div.right div.clearfix label,
 	fieldset.clearfix.balance div.left div.clearfix label,
 	fieldset.clearfix.balance div.right div.clearfix label {
 		width: 35%;
 	}
-	.body fieldset div div.desc,
+	.body fieldset div.clearfix div.desc,
 	fieldset.clearfix div.right div.clearfix div.desc,
 	fieldset.clearfix.balance div.left div.clearfix div.desc,
 	fieldset.clearfix.balance div.right div.clearfix div.desc,
@@ -1032,8 +1051,8 @@ div.ui-datepicker * {
 	fieldset.clearfix div.right div.clearfix {
 		padding: 10px 15px;
 	}
-	.body fieldset div label,
-	.body fieldset div div.desc,
+	.body fieldset div.clearfix label,
+	.body fieldset div.clearfix div.desc,
 	fieldset.clearfix div.right div.clearfix label,
 	fieldset.clearfix div.right div.clearfix div.desc,
 	fieldset.clearfix.balance div.left div.clearfix label,
@@ -1043,14 +1062,14 @@ div.ui-datepicker * {
 		float: none;
 		width: 100%;
 	}
-	.body fieldset div label,
+	.body fieldset div.clearfix label,
 	fieldset.clearfix div.right div.clearfix label,
 	fieldset.clearfix.balance div.left div.clearfix label,
 	fieldset.clearfix.balance div.right div.clearfix label  {
 		display: block;
 		padding: 0 0 0 0;
 	}
-	.body fieldset div div.desc,
+	.body fieldset div.clearfix div.desc,
 	fieldset.clearfix div.right div.clearfix div.desc,
 	fieldset.clearfix.balance div.left div.clearfix div.desc,
 	fieldset.clearfix.balance div.right div.clearfix div.desc {
