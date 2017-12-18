@@ -384,6 +384,8 @@ form h3[name="unpublish"] {
 	cursor: pointer;
 }
 
+
+
 /* Fieldset Style */
 fieldset {
 	padding: 10px 0;
@@ -439,10 +441,6 @@ fieldset {
 .form-group label span:not([class]):first-child {
 	padding-top: 0;
 }
-label.control-label,
-label.col-form-label {
-	font-weight: bold;
-}
 .form-group span label {
 	font-weight: normal;
 	float: none;
@@ -458,6 +456,14 @@ label.col-form-label {
 .form-group input.form-control[type=file] {
 	border: none;
 	padding: 0;
+}
+.form-group.publish div label[for] {
+	display: none;
+}
+
+label.control-label,
+label.col-form-label {
+	font-weight: bold;
 }
 
 
