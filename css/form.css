@@ -658,10 +658,10 @@ fieldset div div.desc span label {
 	display: inline-block;
 	padding: 2px 0 0 0;
 }
-fieldset div div.desc div.errorMessage,
-.dialog fieldset div div.desc .errorMessage,
-.notifier fieldset div div.desc .errorMessage {
-	padding: 5px 0 0 0;
+div.errorMessage,
+.dialog .errorMessage,
+.notifier .errorMessage {
+	padding: 7px 0 0 0;
 	color: #ff0000;
 }
 fieldset div div.desc div.field {
@@ -705,18 +705,18 @@ fieldset div div.desc div.cleditorMain {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
-fieldset div div.desc div.redactor-box {
+div.redactor-box {
 	margin: 0 0 0 0;
 }
-fieldset div div.desc div.redactor-box ul.redactor-toolbar {
+div.redactor-box ul.redactor-toolbar {
 	z-index: 5 !important;
 }
-fieldset div div.desc div.redactor-box p {
+div.redactor-box p {
 	padding: 0 0 0 0;
 	margin: 0 0 15px 0;
 	border: none;
 }
-fieldset div div.desc div.redactor-box .redactor-editor {
+div.redactor-box .redactor-editor {
 	padding: 15px;
 }
 
