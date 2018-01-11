@@ -1,6 +1,11 @@
-group_page		: admin
-name			: Ommu Backend Default
-folder			: ommu
-layout			: admin_default
-thumbnail		: ommu_platform.png
-author			: Putra Sudaryanto
+group_page: admin
+name: Ommu Backend Default
+folder: ommu
+layout: admin_default
+thumbnail: ommu_platform.png
+
+author:
+  name: Putra Sudaryanto
+  phone: (+62)856-299-4114
+  email: putra@sudaryanto.id
+  homepage: https://sudaryanto.id
