@@ -430,10 +430,13 @@ fieldset {
 	color: #808080;
 }
 .form-group .small-px {
-	margin-bottom: 7px;
+	margin: 7px 0;
+}
+.form-group .small-px:first-child {
+	margin-top: 0;
 }
 .form-group .small-px:last-child {
-	margin-top: 0;
+	margin-bottom: 0;
 }
 .form-group label span:not([class]) {
 	padding-top: 10px;
@@ -661,7 +664,7 @@ fieldset div div.desc span label {
 div.errorMessage,
 .dialog .errorMessage,
 .notifier .errorMessage {
-	padding: 7px 0 0 0;
+	margin: 7px 0 0 0;
 	color: #ff0000;
 }
 fieldset div div.desc div.field {

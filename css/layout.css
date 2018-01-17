@@ -1531,7 +1531,7 @@ div.ui-datepicker * {
 	}
 	.body div.content .contentmenu ul.gridmenu li:first-child a {
 		border-left: 1px dotted #ccc;
-	}	
+	}
 }
 
 /* Resolution 800 */
@@ -1859,7 +1859,7 @@ div.ui-datepicker * {
 	}
 	.notifier .fixed {
 		padding: 0 0 0 0 !important;
-	}	
+	}
 	.notifier .dialog-box {
 		-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.7);
 		-moz-box-shadow: 0 0 2px rgba(0,0,0,0.7);

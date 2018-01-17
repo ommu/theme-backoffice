@@ -180,7 +180,7 @@ gapi.analytics.ready(function() {
 		var div = document.createElement('div');
 		div.appendChild(document.createTextNode(str));
 		return div.innerHTML;
-	}	
+	}
 });
 EOP;
 	$cs->registerScript('frontend-analytics', $js);

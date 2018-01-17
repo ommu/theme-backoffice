@@ -314,7 +314,7 @@
 			var nodeName = this._button.nodeName.toUpperCase();			
 			if (nodeName == 'INPUT' || nodeName == 'BUTTON'){
 			    this._button.setAttribute('disabled', 'disabled');
-			}			
+			}		
 			
 			// hide input
 			if (this._input){
@@ -382,7 +382,7 @@
 			        throw new Error('Opacity not supported by the browser');
 			    }
 			    div.style.filter = "alpha(opacity=0)";
-			}			
+			}		
 			
 			addEvent(input, 'change', function(){
 			     
@@ -437,7 +437,7 @@
         _clearInput : function(){
 			if (!this._input){
 			    return;
-			}			
+			}		
 						     
 			// this._input.value = ''; Doesn't work in IE6						       
 			removeNode(this._input.parentNode);

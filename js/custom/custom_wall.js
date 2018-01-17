@@ -31,6 +31,6 @@ $('#admin .wall .list-view .paging a').click(function() {
 				}
 			}
 		});
-	}	
+	}
 	return false;
 });
