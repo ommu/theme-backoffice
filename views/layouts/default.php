@@ -196,7 +196,7 @@ if ($module == 'users' && $currentAction == 'admin/login') {
 	</footer>
 	<?php //end.Footer ?>
 <?php }?>
-	<?php $this->widget('FrontGoogleAnalytics'); ?>
+	<?php $this->widget('ComGoogleAnalytics'); ?>
 
  </body>
 </html>

@@ -4,7 +4,7 @@
 		$menuRender = 1;
 		$title = 'Submenu';
 		
-	} elseif($module == null && in_array($controller, array('content','view','history','module','globaltag','translate','menu'))) {
+	} elseif($module == null && in_array($controller, array('content','view','history','module','globaltag','translate','menu','phrase'))) {
 		$menuRender = 2;
 		$title = 'Submenu';
 		
@@ -159,7 +159,7 @@
 		<?php if(Yii::app()->user->level == 1) {?>
 		<li <?php echo $controller == 'menu' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('menu/manage');?>" title="<?php echo Yii::t('phrase', 'Menus');?>"><?php echo Yii::t('phrase', 'Menus');?></a></li>
 		<?php }?>
-		<li <?php echo $controller == 'translate' ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('translate/manage');?>" title="<?php echo Yii::t('phrase', 'Translate');?>"><?php echo Yii::t('phrase', 'Translate');?></a></li>
+		<li <?php echo in_array($controller, array('phrase','translate')) ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('phrase/manage');?>" title="<?php echo Yii::t('phrase', 'Phrase & Translate');?>"><?php echo Yii::t('phrase', 'Phrase & Translate');?></a></li>
 
 	<?php } elseif($module != null && !in_array($module, array('users','report','support'))) {
 		$plugin = $_GET['plugin'];
