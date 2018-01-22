@@ -9,3 +9,8 @@ author:
   phone: (+62)856-299-4114
   email: putra@sudaryanto.id
   homepage: https://sudaryanto.id
+
+config:
+  ga:
+    label: Google Analytic Rules
+    rules: 
