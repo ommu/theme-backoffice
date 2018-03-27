@@ -567,11 +567,11 @@ fieldset div div.desc img {
 	display: block;
 	max-width: 100%;
 }
-fieldset div div.desc .suggest {
+fieldset .suggest {
 	padding: 5px 0 0 0;
 	border: none;
 }
-fieldset div div.desc .suggest div {
+fieldset .suggest div {
 	position: relative;
 	float: left;
 	width: auto;
@@ -582,10 +582,10 @@ fieldset div div.desc .suggest div {
 	line-height: 14px;
 	background: #f9f9f9;
 }
-fieldset div div.desc .suggest div.d {
+fieldset .suggest div.d {
 	padding: 3px 5px 3px 5px;
 }
-fieldset div div.desc .suggest div a {
+fieldset .suggest div a {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;

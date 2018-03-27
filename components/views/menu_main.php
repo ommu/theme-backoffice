@@ -24,7 +24,7 @@
 		<li <?php echo $menuRender == 1 ? 'class="active"' : ''; ?>><a class="dashboard" href="<?php echo Yii::app()->createUrl('admin/index');?>" title="<?php echo Yii::t('phrase', 'Dashboard');?>"><?php echo Yii::t('phrase', 'Dashboard');?></a></li>
 		<li <?php echo $menuRender == 2 ? 'class="active"' : ''; ?>><a class="content" href="<?php echo Yii::app()->createUrl('content/manage');?>" title="<?php echo Yii::t('phrase', 'Content');?>"><?php echo Yii::t('phrase', 'Content');?></a></li>
 		<?php 
-			$plugin = OmmuPlugins::getPlugin(1, null, 'data');
+			$plugin = OmmuPlugins::getPlugin(1, 'folder', 'data');
 			if($plugin != null) {
 				foreach($plugin as $key => $val) {
 					$parent = $val->parent_id ? $val->parent->folder : null;
