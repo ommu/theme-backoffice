@@ -167,7 +167,7 @@
 			$menu = Utility::getModuleMenu($plugin, $module);
 		else
 			$menu = Utility::getModuleMenu($module);
-
+			
 		if($menu != null) {
 			foreach($menu as $key => $val) {
 				$siteType = explode(',', $val['urlRules']['siteType']);
