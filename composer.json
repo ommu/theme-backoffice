@@ -1,11 +1,10 @@
 {
 	"name": "ommu/ommu",
-	"description": "Ommu backoffice theme for Ommu Platform",
+	"description": "Ommu Backoffice Theme from Ommu Platform",
 	"keywords": [
 		"theme",
 		"backoffice",
 		"ommu",
-		"platform",
 		"ommu platform"
 	],
 	"homepage": "https://github.com/ommu/theme-ommu-backend",
