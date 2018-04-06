@@ -8,17 +8,17 @@
 		"platform",
 		"ommu platform"
 	],
-	"homepage": "https://github.com/OmmuThemes/ommu",
+	"homepage": "https://github.com/ommu/theme-ommu-backend",
 	"type": "ommu-theme",
 	"license": "Apache-2.0",
 	"support": {
-		"issues": "https://github.com/OmmuThemes/ommu/issues",
-		"wiki": "https://github.com/OmmuThemes/ommu/wiki",
-		"source": "https://github.com/OmmuThemes/ommu"
+		"issues": "https://github.com/ommu/theme-ommu-backend/issues",
+		"wiki": "https://github.com/ommu/theme-ommu-backend/wiki",
+		"source": "https://github.com/ommu/theme-ommu-backend"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/OmmuThemes/ommu.git"
+		"url": "https://github.com/ommu/theme-ommu-backend.git"
 	},
 	"authors": [
 		{
