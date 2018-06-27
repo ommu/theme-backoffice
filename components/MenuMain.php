@@ -30,6 +30,6 @@ class MenuMain extends CWidget
 			'currentAction'=>$currentAction,
 			'currentModule'=>$currentModule,
 			'currentModuleAction'=>$currentModuleAction,
-		));	
+		));
 	}
 }

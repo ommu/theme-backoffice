@@ -18,6 +18,6 @@ class FooterCopyright extends CWidget
 
 		$this->render('footer_copyright',array(
 			'model' => $model,
-		));	
+		));
 	}
 }

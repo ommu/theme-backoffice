@@ -37,7 +37,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 	$keywords = $this->pageMeta;
 	$urlAddress = Utility::getProtocol().'://'.Yii::app()->request->serverName.Yii::app()->request->requestUri;
 
-	if(Yii::app()->request->isAjaxRequest && !isset($_GET['ajax'])) {
+	if(Yii::app()->request->isAjaxRequest && !Yii::app()->getRequest()->getParam('ajax')) {
 		/* if(Yii::app()->session['theme_active'] != Yii::app()->theme->name) {
 			$return = array(
 				'redirect' => $urlAddress,		

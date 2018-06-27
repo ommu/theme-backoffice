@@ -23,8 +23,8 @@ class MenuContent extends CWidget
 			'select' => 'site_type'
 		));
 		
-		$plugin = $_GET['plugin'];
-		if(isset($plugin))
+		$plugin = Yii::app()->getRequest()->getParam('plugin');
+		if($plugin)
 			$model = Utility::getContentMenu($plugin, $module);
 		else
 			$model = Utility::getContentMenu($module);
@@ -39,6 +39,6 @@ class MenuContent extends CWidget
 			'currentAction'=>$currentAction,
 			'currentModule'=>$currentModule,
 			'currentModuleAction'=>$currentModuleAction,
-		));	
+		));
 	}
 }

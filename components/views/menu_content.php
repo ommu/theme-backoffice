@@ -30,7 +30,7 @@ if($model != null) {
 				}
 			}
 		}
-		if(isset($plugin))
+		if($plugin)
 			$arrAttrParams['plugin'] = $plugin;
 		
 		$link = $val['urlPath']['url'] != null && $val['urlPath']['url'] != '-' ? Yii::app()->controller->createUrl($val['urlPath']['url'], $arrAttrParams) : 'javascript:void(0);';
@@ -81,7 +81,7 @@ if($model != null) {
 							}
 						}
 					}
-					if(isset($plugin))
+					if($plugin)
 						$arrAttrParams['plugin'] = $plugin;
 		
 					$link = $data['urlPath']['url'] != null && $data['urlPath']['url'] != '-' ? Yii::app()->controller->createUrl($data['urlPath']['url'], $arrAttrParams) : 'javascript:void(0);';
@@ -97,7 +97,7 @@ if($model != null) {
 					} else {
 						$actionArray = explode(',', $data['urlRules'][1]);
 						if($data['urlRules'][0] == $controller && in_array($action, $actionArray) && in_array($setting->site_type, $siteType) && in_array(Yii::app()->user->level, $userLevel))
-							echo '<li><a href="'.$link.'" title="'.Yii::t('phrase', $data['urlTitle']).'"><span class="icons">'.$icons.'</span>'.Yii::t('phrase', $data['urlTitle']).'</a></li>';					
+							echo '<li><a href="'.$link.'" title="'.Yii::t('phrase', $data['urlTitle']).'"><span class="icons">'.$icons.'</span>'.Yii::t('phrase', $data['urlTitle']).'</a></li>';
 					}
 				}
 				echo '</ul>';

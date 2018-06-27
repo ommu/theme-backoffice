@@ -16,6 +16,6 @@ class HeaderLanguageFlag extends CWidget
 
 		$this->render('header_language_flag',array(
 			'model' => $model,
-		));	
+		));
 	}
 }

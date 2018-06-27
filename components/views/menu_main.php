@@ -62,9 +62,9 @@
 						//$titleApps = $val->name;
 						$titleApps = $val->name;
 						$class = '';
-						$plugin = $_GET['plugin'];
+						$plugin = Yii::app()->getRequest()->getParam('plugin');
 						
-						if(isset($plugin)) {
+						if($plugin) {
 							if($val->parent_id && $val->folder == $plugin) {
 								$class = 'class="active"';
 								$title = $val->name;
@@ -77,7 +77,7 @@
 						}
 
 						$item = '<li '.$class.'>';
-						$item .= '<a href="'.$url.'" title="'.Yii::t('phrase', $titleApps).'">'.Yii::t('phrase', $titleApps).'</a>';						
+						$item .= '<a href="'.$url.'" title="'.Yii::t('phrase', $titleApps).'">'.Yii::t('phrase', $titleApps).'</a>';
 						$item .= '</li>';
 						echo $item;
 					}
@@ -162,8 +162,8 @@
 		<li <?php echo in_array($controller, array('phrase','translate')) ? 'class="selected"' : '' ?>><a href="<?php echo Yii::app()->createUrl('phrase/manage');?>" title="<?php echo Yii::t('phrase', 'Phrase & Translate');?>"><?php echo Yii::t('phrase', 'Phrase & Translate');?></a></li>
 
 	<?php } elseif($module != null && !in_array($module, array('users','report','support'))) {
-		$plugin = $_GET['plugin'];
-		if(isset($plugin))
+		$plugin = Yii::app()->getRequest()->getParam('plugin');
+		if($plugin)
 			$menu = Utility::getModuleMenu($plugin, $module);
 		else
 			$menu = Utility::getModuleMenu($module);
@@ -208,7 +208,7 @@
 							}
 						}
 					}
-					if(isset($plugin))
+					if($plugin)
 						$arrAttrParams['plugin'] = $plugin;
 						
 					$submenu = $val['submenu'];
@@ -257,7 +257,7 @@
 										}
 									}
 								}
-								if(isset($plugin))
+								if($plugin)
 									$arrAttrParams['plugin'] = $plugin;
 								
 								$url = $data['urlPath']['url'] != null && $data['urlPath']['url'] != '-' ? Yii::app()->createUrl($module.'/'.$data['urlPath']['url'], $arrAttrParams) : 'javascript:void(0)';
@@ -266,7 +266,7 @@
 						}
 						echo '</ul>';
 					}
-					echo '</li>';					
+					echo '</li>';
 				}
 			}
 		}
@@ -284,7 +284,7 @@
 						if(count($urlArray) == 3)
 							$aClass = $controller == $urlArray[0].'/'.$urlArray[1] ? 'class="active"' : '';
 						else
-							$aClass = $controller == $urlArray[0] ? 'class="active"' : '';					
+							$aClass = $controller == $urlArray[0] ? 'class="active"' : '';
 					}
 					$icons = $val['urlPath']['icon'] != null && $val['urlPath']['icon'] != '-' ? $val['urlPath']['icon'] : 'C';
 
@@ -331,7 +331,7 @@
 										if(count($urlArray) == 3)
 											$subLiClass = $controller == $urlArray[0].'/'.$urlArray[1] && $action == $urlArray[2] ? 'class="selected"' : '';
 										else
-											$subLiClass = $controller == $urlArray[0] && $action == $urlArray[1]  ? 'class="selected"' : '';								
+											$subLiClass = $controller == $urlArray[0] && $action == $urlArray[1]  ? 'class="selected"' : '';
 									} else {
 										if(count($urlArray) == 3)
 											$subLiClass = $controller == $urlArray[0].'/'.$urlArray[1] ? 'class="selected"' : '';

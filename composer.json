@@ -5,7 +5,7 @@
 		"theme",
 		"backoffice",
 		"ommu",
-		"ommu platform"
+		"ommu-platform"
 	],
 	"homepage": "https://github.com/ommu/theme-ommu-backend",
 	"type": "ommu-theme",

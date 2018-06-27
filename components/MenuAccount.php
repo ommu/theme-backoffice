@@ -21,6 +21,6 @@ class MenuAccount extends CWidget
 		));
 		$this->render('menu_account', array(
 			'model'=>$model,
-		));	
+		));
 	}
 }
