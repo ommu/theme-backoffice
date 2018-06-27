@@ -1,23 +1,24 @@
 {
-	"name": "ommu/ommu",
-	"description": "Ommu Backoffice Theme from Ommu Platform",
+	"name": "ommu/backoffice",
+	"description": "Backoffice Ommu Theme from Ommu Platform",
 	"keywords": [
 		"theme",
 		"backoffice",
 		"ommu",
-		"ommu-platform"
+		"ommu-platform",
+		"yii"
 	],
-	"homepage": "https://github.com/ommu/theme-ommu-backend",
+	"homepage": "https://github.com/ommu/theme-backoffice",
 	"type": "ommu-theme",
 	"license": "Apache-2.0",
 	"support": {
-		"issues": "https://github.com/ommu/theme-ommu-backend/issues",
-		"wiki": "https://github.com/ommu/theme-ommu-backend/wiki",
-		"source": "https://github.com/ommu/theme-ommu-backend"
+		"issues": "https://github.com/ommu/theme-backoffice/issues",
+		"wiki": "https://github.com/ommu/theme-backoffice/wiki",
+		"source": "https://github.com/ommu/theme-backoffice"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ommu/theme-ommu-backend.git"
+		"url": "https://github.com/ommu/theme-backoffice.git"
 	},
 	"authors": [
 		{
@@ -30,7 +31,7 @@
 	"require": {
 		"php": ">=5.3.2",
 		"oomphinc/composer-installers-extender": "^1.0",
-		"yiisoft/yii": "1.1.*"
+		"yiisoft/yii": ">=1.1.14"
 	},
 	"require-dev": {
 	}
