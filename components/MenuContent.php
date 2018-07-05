@@ -19,7 +19,7 @@ class MenuContent extends CWidget
 		$currentModule = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id);
 		$currentModuleAction = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
 
-		$setting = OmmuSettings::model()->findByPk(1,array(
+		$setting = OmmuSettings::model()->findByPk(1, array(
 			'select' => 'site_type'
 		));
 		

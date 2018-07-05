@@ -23,7 +23,7 @@ class SidebarStatistic extends CWidget
 		Yii::import('ext.gapi-google-analytics-php-interface.OGapi');
 		
 		//get information
-		$model = OmmuSettings::model()->findByPk(1,array(
+		$model = OmmuSettings::model()->findByPk(1, array(
 			'select' => 'site_url, analytic, analytic_id, analytic_profile_id',
 		));
 		$configPath = YiiBase::getPathOfAlias('application.config');
@@ -31,7 +31,7 @@ class SidebarStatistic extends CWidget
 		$gapi = new OGapi(Yii::app()->params['Analytics']['gserviceaccount'], $configPath.'/'.Yii::app()->params['Analytics']['gservicecertificate']);
 		$token = $gapi->getToken();
 
-		$this->render('sidebar_statistic',array(
+		$this->render('sidebar_statistic', array(
 			'model' => $model,
 			'token'=>$token,
 			'module'=>$module,

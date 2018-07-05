@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
+if(Yii::app()->getRequest()->getParam('protocol') == 'script') {
 	echo $cs=Yii::app()->getClientScript()->getScripts();
 	
 } else {
@@ -15,7 +15,7 @@ if(isset($_GET['protocol']) && $_GET['protocol'] == 'script') {
 	 * = Global condition
 	 ** Construction condition
 	 */
-	$setting = OmmuSettings::model()->findByPk(1,array(
+	$setting = OmmuSettings::model()->findByPk(1, array(
 		'select' => 'site_oauth, site_title',
 	));
 
