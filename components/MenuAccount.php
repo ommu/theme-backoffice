@@ -2,6 +2,8 @@
 
 class MenuAccount extends CWidget
 {
+	use UtilityTrait;
+	
 	public $imageDefault;
 
 	public function init() {

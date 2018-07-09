@@ -12,7 +12,7 @@ class HeaderLanguageFlag extends CWidget
 
 	protected function renderContent() {
 		//get information
-		$model = OmmuLanguages::getLanguage(null, 'data');
+		$model = OmmuLanguages::getLanguage(null, 'id', false);
 
 		$this->render('header_language_flag', array(
 			'model' => $model,
