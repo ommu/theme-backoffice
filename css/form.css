@@ -722,6 +722,9 @@ div.redactor-box p {
 div.redactor-box .redactor-editor {
 	padding: 15px;
 }
+.redactor-editor * {
+	font-size: 14px;
+}
 
 /* Fieldset Sidebar ON */
 fieldset.clearfix {}
