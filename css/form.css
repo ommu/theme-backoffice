@@ -463,6 +463,9 @@ fieldset {
 .form-group.publish div label[for] {
 	display: none;
 }
+.form-group.publish div span label[for] {
+	display: inline;
+}
 
 label.control-label,
 label.col-form-label {

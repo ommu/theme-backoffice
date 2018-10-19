@@ -40,7 +40,7 @@ if(Yii::app()->getRequest()->getParam('protocol') == 'script') {
 	if(Yii::app()->request->isAjaxRequest && !Yii::app()->getRequest()->getParam('ajax')) {
 		/* if(Yii::app()->session['theme_active'] != Yii::app()->theme->name) {
 			$return = array(
-				'redirect' => $urlAddress,		
+				'redirect' => $urlAddress,
 			);
 
 		} else { */
