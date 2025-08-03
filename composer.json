@@ -1,11 +1,11 @@
 {
 	"name": "ommu/backoffice",
-	"description": "Backoffice Ommu Theme from Ommu Platform",
+	"description": "Backoffice Ommu Theme from OMMU",
 	"keywords": [
 		"theme",
 		"backoffice",
+		"backend-theme",
 		"ommu",
-		"ommu-platform",
 		"yii"
 	],
 	"homepage": "https://github.com/ommu/theme-backoffice",
@@ -23,8 +23,8 @@
 	"authors": [
 		{
 			"name": "Putra Sudaryanto",
-			"email": "putra@ommu.co",
-			"homepage": "https://ommu.co",
+			"email": "putra@ommu.id",
+			"homepage": "https://ommu.id",
 			"role": "Creator"
 		}
 	],

@@ -91,7 +91,7 @@ if(Yii::app()->getRequest()->getParam('protocol') == 'script') {
   <meta charset="UTF-8" />
   <title><?php echo $title;?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="author" content="Ommu Platform (support@ommu.co)" />
+  <meta name="author" content="OMMU (support@ommu.id)" />
   <script type="text/javascript">
 	var baseUrl = '<?php echo BASEURL;?>';
 	var lastTitle = '<?php echo $title;?>';
@@ -117,7 +117,7 @@ if ($module == 'users' && $currentAction == 'admin/login') {
 					<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/resource/logo_ommu_large.png" alt="">
 					<div class="content" id="<?php echo $dialogWidth;?>" name="notifier-wrapper"><?php echo ($this->dialogDetail == true && !empty($this->dialogWidth)) ? $content : '';?></div>
 					<?php if($setting && $setting->site_oauth == 1) {?>
-						<div class="oauth"><?php echo Yii::t('phrase', 'BPAD D.I Yogyakarta Oauth Powered by $link', array('$link'=>CHtml::link('ommu', 'https://company.ommu.co')));?></div>
+						<div class="oauth"><?php echo Yii::t('phrase', 'BPAD D.I Yogyakarta Oauth Powered by $link', array('$link'=>CHtml::link('ommu', 'https://company.ommu.id')));?></div>
 					<?php }?>
 				</div>
 			</div>

@@ -6,7 +6,7 @@
 
 <?php //begin.Powered ?>
 <div class="powered">
-	<?php echo Yii::t('phrase', 'Powered by');?> <a off_address="" href="http://company.ommu.co" target="_blank" title="Ommu Platform">Ommu Platform</a>
+	<?php echo Yii::t('phrase', 'Powered by');?> <a off_address="" href="https://github.com/ommu/theme-backoffice" target="_blank" title="OMMU">OMMU</a>
 </div>
 <?php //end.Powered ?>
 

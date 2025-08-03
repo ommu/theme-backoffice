@@ -10,7 +10,7 @@
 <?php //begin.Information ?>
 <div class="account">
 	<?php //begin.Photo ?>
-	<a off_address="" id="uplaod-image" class="photo" href="<?php echo Yii::app()->createUrl('users/o/admin/photo');?>" title="<?php echo Yii::t('phrase', 'Change Photo').': '.Yii::app()->user->displayname;?>"><img src="<?php echo Utility::getTimThumb($image, 82, 82, 1);?>" alt="<?php echo $model->photos != '' ? Yii::app()->user->displayname : 'Ommu Platform';?>"/></a>
+	<a off_address="" id="uplaod-image" class="photo" href="<?php echo Yii::app()->createUrl('users/o/admin/photo');?>" title="<?php echo Yii::t('phrase', 'Change Photo').': '.Yii::app()->user->displayname;?>"><img src="<?php echo Utility::getTimThumb($image, 82, 82, 1);?>" alt="<?php echo $model->photos != '' ? Yii::app()->user->displayname : 'OMMU';?>"/></a>
 	<div class="info">
 		<?php echo Yii::t('phrase', 'Welcome');?>, <a href="<?php echo Yii::app()->createUrl('users/o/admin/edit')?>" title="<?php echo Yii::t('phrase', 'Edit Account').': '.Yii::app()->user->displayname;?>"><?php echo Yii::app()->user->displayname;?></a>
 		<span><?php echo Yii::t('phrase', 'Last sign in');?> : <?php echo $this->dateFormat($model->lastlogin_date);?></span>
